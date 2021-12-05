@@ -124,6 +124,17 @@
 	  }
 	}];
 	var decks = [];
+
+	var sfEnabled = function sfEnabled() {
+	  if (typeof screenfull !== "undefined") {
+	    if (screenfull.enabled || screenfull.isEnabled) {
+	      return true;
+	    }
+	  }
+
+	  return false;
+	};
+
 	plugs.forEach(function (plug) {
 	  var thisconfig = {};
 
@@ -139,9 +150,13 @@
 
 	  if (document.getElementById(name)) {
 	    decks[name] = new Reveal(document.getElementById(name), thisconfig);
-	    decks[name].on(screenfull.raw.fullscreenchange, function (e) {
-	      fullscreenchange(e, decks[name]);
-	    });
+
+	    if (sfEnabled()) {
+	      decks[name].on(screenfull.raw.fullscreenchange, function (e) {
+	        fullscreenchange(e, decks[name]);
+	      });
+	    }
+
 	    decks[name].initialize();
 	  }
 	}); // Internation dropdown

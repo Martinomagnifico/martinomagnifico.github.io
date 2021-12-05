@@ -450,7 +450,7 @@ pre code {
 
 .fsbutton {
   border-radius: 6px;
-  display: inline-block;
+  display: none;
   text-decoration: none;
   cursor: pointer;
   text-align: center;
