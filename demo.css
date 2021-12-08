@@ -135,6 +135,7 @@ body, html {
       padding-bottom: 0; } }
 
 .lane {
+  overflow: hidden;
   padding-bottom: 5rem;
   padding-top: 5rem; }
   .lane:nth-child(even), .lane.darkgray {
@@ -279,6 +280,22 @@ a.button {
       height: 100%;
       cursor: default; }
 
+.reveal-viewport.focused:-webkit-full-screen {
+  border: none;
+  -webkit-transform: none;
+          transform: none; }
+
+.reveal-viewport.focused:-ms-fullscreen {
+  border: none;
+  -ms-transform: none;
+      transform: none; }
+
+.reveal-viewport.focused:fullscreen {
+  border: none;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none; }
+
 .slides {
   opacity: 0;
   -webkit-transition: opacity .5s ease;
@@ -304,12 +321,12 @@ a.button {
 
 p code, p kbd, code {
   background: rgba(180, 180, 180, 0.2);
-  font-size: 0.8em;
+  font-size: 0.7em;
   padding: 5px 10px;
-  border-radius: 4px; }
+  border-radius: 6px; }
 
 pre {
-  border-radius: 5px; }
+  border-radius: 6px; }
 
 p kbd {
   font-family: monospace; }
@@ -440,13 +457,21 @@ pre code {
     position: absolute;
     left: 1em; }
 
-.reveal .backgrounds {
-  -webkit-transition: all 1.6s cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  -o-transition: all 1.6s cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  transition: all 1.6s cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+.reveal.reveal-viewport .backgrounds {
+  -webkit-transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
+  -o-transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
+  transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important; }
 
-.reveal.fullscreen .backgrounds {
+.reveal.reveal-viewport.fullscreen .backgrounds {
+  -webkit-transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
+  -o-transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
+  transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
   background-color: DarkSlateGray; }
+
+.fsfx-disabled {
+  display: none; }
+  .no-fsfx .fsfx-disabled {
+    display: block; }
 
 .fsbutton {
   border-radius: 6px;
@@ -542,7 +567,8 @@ pre code {
           justify-content: space-between;
   width: 100%;
   font-size: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  margin-top: -1px; }
   .reveal.ready:not(.hide-menubar) .menubar {
     -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
@@ -705,7 +731,7 @@ html.wf-active.selfhostfonts .reveal .fontinfo:after {
     margin-top: 24px; }
 
 .fullscreen .reveal.embedded .controls {
-  font-size: .8vw; }
+  font-size: 12px; }
 
 .reveal.embedded .controls {
   font-size: 10px; }

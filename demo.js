@@ -3,22 +3,14 @@
 	factory();
 }((function () { 'use strict';
 
-	var fullscreenchange = function fullscreenchange(event, element) {
-	  if (screenfull.isFullscreen) {
-	    document.body.classList.add("fullscreen");
-	    element.layout();
-	    element.configure({
-	      keyboardCondition: null
-	    });
-	  }
+	var sfEnabled = function sfEnabled() {
+	  if (typeof screenfull !== "undefined") {
+	    if (screenfull.enabled || screenfull.isEnabled) {
+	      return true;
+	    }
 
-	  if (!screenfull.isFullscreen) {
-	    document.body.classList.remove("fullscreen");
-	    element.layout();
-	    element.configure({
-	      keyboardCondition: "focused"
-	    });
-	  }
+	    return false;
+	  } else return false;
 	};
 
 	var viewdemos = document.querySelectorAll("[data-viewdemo]");
@@ -26,7 +18,7 @@
 	  var toBeFSed = viewdemo.getAttribute("data-viewdemo");
 	  toBeFSed = document.getElementById(toBeFSed);
 	  viewdemo.addEventListener('click', function (e) {
-	    if (screenfull.isEnabled) {
+	    if (sfEnabled()) {
 	      e.preventDefault();
 	      screenfull.request(toBeFSed);
 	    }
@@ -63,7 +55,7 @@
 	        }
 	      }
 	    },
-	    plugins: [Internation]
+	    plugins: [Internation, RevealHighlight]
 	  }
 	}, {
 	  name: "verticator",
@@ -81,7 +73,7 @@
 	}, {
 	  name: "simplemenu",
 	  config: {
-	    plugins: [Simplemenu]
+	    plugins: [Simplemenu, RevealHighlight]
 	  }
 	}, {
 	  name: "relativenumber",
@@ -120,21 +112,10 @@
 	      smalltouch: false,
 	      thisdeckonly: true
 	    },
-	    plugins: [Smallcontrol]
+	    plugins: [Smallcontrol, RevealHighlight]
 	  }
 	}];
 	var decks = [];
-
-	var sfEnabled = function sfEnabled() {
-	  if (typeof screenfull !== "undefined") {
-	    if (screenfull.enabled || screenfull.isEnabled) {
-	      return true;
-	    }
-	  }
-
-	  return false;
-	};
-
 	plugs.forEach(function (plug) {
 	  var thisconfig = {};
 
@@ -150,13 +131,6 @@
 
 	  if (document.getElementById(name)) {
 	    decks[name] = new Reveal(document.getElementById(name), thisconfig);
-
-	    if (sfEnabled()) {
-	      decks[name].on(screenfull.raw.fullscreenchange, function (e) {
-	        fullscreenchange(e, decks[name]);
-	      });
-	    }
-
 	    decks[name].initialize();
 	  }
 	}); // Internation dropdown
