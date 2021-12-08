@@ -1120,24 +1120,24 @@ if uglydog == false
                                     <section>
                                         <h4>Using a single <code>t</code> parameter</h4>
                                         <p class="small"><code class="url">.../demo.html?t=dogs</code></p>
-                                        <p class="small">Test it here now: <a href="demo.html?t=dogs">demo.html?t=dogs</a></p>
+                                        <p class="small">Test it here now: <a href="?t=dogs">demo.html?t=dogs</a></p>
                                     </section>
                                     <section>
                                         <h4>Using multiple <code>t</code> parameters</h4>
                                         <p class="small"><code class="url">.../demo.html?t=dogs,cats</code></p>
-                                        <p class="small">Test it here now: <a href="demo.html?t=dogs,cats">demo.html?t=dogs,cats</a></p>
+                                        <p class="small">Test it here now: <a href="?t=dogs,cats">demo.html?t=dogs,cats</a></p>
                                     </section>
                                     <section>
                                         <h4>Using more specific <code>t</code> parameters</h4>
                                         <p class="small">Use the plus sign to be more specific. <br>In this case we want all dogs, but only small cats.</p>
                                         <p class="small"><code class="url">.../demo.html?t=dogs,cats+small</code></p>
-                                        <p class="small">Test it here now: <a href="demo.html?t=dogs,cats+small">demo.html?t=dogs,cats+small</a></p>
+                                        <p class="small">Test it here now: <a href="?t=dogs,cats+small">demo.html?t=dogs,cats+small</a></p>
                                     </section>
                                     <section>
                                         <h4>Using more specific <code>t</code> parameters</h4>
                                         <p class="small">This works with nested tags as well.</p>
                                         <p class="small"><code class="url">.../demo.html?t=small+cats,nice+horses</code></p>
-                                        <p class="small">Test it here now: <a href="demo.html?t=small+cats,nice+horses">demo.html?t=small+cats,nice+horses</a></p>
+                                        <p class="small">Test it here now: <a href="t=small+cats,nice+horses">demo.html?t=small+cats,nice+horses</a></p>
                                     </section>
                                 </section>
                                 <section data-name="Names" data-tag="intro">
@@ -1149,12 +1149,12 @@ if uglydog == false
                                         <h4>Using an <code>n</code> parameter</h4>
                                         <p class="small">There are two named stacks with vertical slides. Now we only want the first (data-name="Brown") stack.</p>
                                         <p class="small"><code class="url">.../demo.html?n=brown</code></p>
-                                        <p class="small">Test it here now: <a href="demo.html?n=brown">demo.html?n=brown</a></p>
+                                        <p class="small">Test it here now: <a href="?n=brown">demo.html?n=brown</a></p>
                                     </section>
                                     <section>
                                         <h4>Using multiple <code>n</code> parameters</h4>
                                         <p class="small"><code class="url">.../demo.html?n=brown,black+%26+white</code></p>
-                                        <p class="small">Test it here now: <a href="demo.html?n=brown,black+%26+white">demo.html?n=brown,black+%26+white</a></p>
+                                        <p class="small">Test it here now: <a href="?n=brown,black+%26+white">demo.html?n=brown,black+%26+white</a></p>
                                     </section>
                                 </section>
                                 <section data-name="Groups" data-tag="intro">
@@ -1184,7 +1184,7 @@ if uglydog == false
                                     <section>
                                         <h4>Using a <code>g</code> parameter</h4>
                                         <p class="small"><code class="url">.../demo.html?g=brownpets</code></p>
-                                        <p class="small">Test it here now: <a href="demo.html?g=brownpets">demo.html?g=brownpets</a></p>
+                                        <p class="small">Test it here now: <a href="?g=brownpets">demo.html?g=brownpets</a></p>
                                     </section>
                                     <section>For the <code>mandatorygroup</code> option, see the <a href="reveal.js-tagteam/demo.html" target="_blank">full demo</a>.</section>
                                 </section>
@@ -1200,8 +1200,8 @@ if uglydog == false
                                     <section data-tag="horses">Horse (black &amp; white)</section>
                                 </section>
                                 <section data-mandatory>There is no correct URL parameter set</section>
-                                <section data-tag="tagteam" data-state="hide-menubar">
-                                    <p>Thanks for trying out Tagteam!</p>
+                                <section data-tag="tagteam" data-state="hide-menubar" data-visibility="hidden">
+                                    <p>Thanks for trying out Tagteam! <br>Star it if you like it :-)</p>
                                 </section>
                                 <section data-tag="keep" data-state="hide-menubar">Go <a href="demo.html">back to the start</a></section>
                             </div>

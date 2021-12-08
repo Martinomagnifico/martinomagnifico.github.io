@@ -160,7 +160,7 @@
 	var label = document.querySelector('.menubar .dropdown > label');
 	dropdown.addEventListener("click", function (e) {
 	  label.click();
-	}, false);
+	}, false); // Tagteam only
 
 	var changeParamExample = function changeParamExample(thisDeck) {
 	  var theDeck = thisDeck.getRevealElement();
