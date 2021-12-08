@@ -624,10 +624,14 @@ pre code {
       -moz-osx-font-smoothing: grayscale; }
   @media screen and (max-width: 1199px) {
     .menubar {
-      font-size: .75rem; }
+      font-size: 0.75rem; }
       .menubar > * {
         padding: .2em .3em; } }
-  .fullscreen .menubar {
+  :-webkit-full-screen .menubar {
+    font-size: 2.7vmin; }
+  :-ms-fullscreen .menubar {
+    font-size: 2.7vmin; }
+  .fullscreen .menubar, :fullscreen .menubar {
     font-size: 2.7vmin; }
   .menubar .slide-number {
     display: block !important;
@@ -735,3 +739,7 @@ html.wf-active.selfhostfonts .reveal .fontinfo:after {
 
 .reveal.embedded .controls {
   font-size: 10px; }
+
+code.url {
+  background: #ddd;
+  color: #222D2F; }

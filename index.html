@@ -1037,6 +1037,188 @@ if uglydog == false
             </div>
         </div>
     </div>
+    <div class="lane" id="lane-tagteam">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Tagteam</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder">
+                        <div class="reveal" id="tagteam" style="background-image: url('//martinomagnifico.github.io/reveal.js-tagteam/screenshot.png')">
+                            <div class="menubar">
+                                <ul class="menu"></ul>
+                            </div>
+                            <div class="slides">
+                                <section data-tag="keep" data-state="hide-menubar">
+                                    <h1>Tagteam</h1>
+                                    <h3>for Reveal.js</h3><code class="url" id="exampleParameter">.../demo.html?t=tagteam</code>
+                                </section>
+                                <section data-name="What is it" data-tag="intro">
+                                    <section>
+                                        <h2>What is it?</h2>
+                                    </section>
+                                    <section>
+                                        <p>Tagteam is used to dynamically show only certain sections in presentations when you don't want to show everything. It uses URL parameters to set the needed sections.</p>
+                                        <p class="small">This demo uses only this HTML file. Clicking the demo links will only change the URL parameters and reload the page. Tagteam can work together with <a href="https://github.com/Martinomagnifico/reveal.js-simplemenu" target="_blank">Simplemenu </a> to show only the relevant chapters.</p>
+                                    </section>
+                                    <section>
+                                        <p>An option to use groups is also provided. Also, the need to enter a group can be set, to avoid the possibility to view all slides (no parameters at all).</p>
+                                        <p class="small">This is just a simple safeguard. Anyone with a bit of HTML knowledge can find the valid group names.</p>
+                                    </section>
+                                    <section>
+                                        <p>Tagteam reads 3 different URL parameters:
+                                        <ol>
+                                            <li><code>?t=abcd</code> for <code>data-tag</code> sections</li>
+                                            <li><code>?n=abcd</code> for <code>data-name</code> sections</li>
+                                            <li><code>?g=abcd</code> for predefined groups</li>
+                                        </ol>
+                                        </p>
+                                    </section>
+                                    <section>
+                                        <p>Any named or tagged section that is NOT in a parameter will NOT be shown. Sections without tags or name WILL be shown.</p>
+                                        <p class="small">You can also use a <code>data-keep</code> attribute, like the title section of this presentation, to make sure that the slide will always be shown, except when a group is mandatory.</p>
+                                    </section>
+                                </section>
+                                <section data-name="Setup" data-tag="intro">
+                                    <section>
+                                        <h2>Setup</h2>
+                                    </section>
+                                    <section>
+                                        <p>Setup your HTML with data-tags and/or data-names:</p>
+                                        <pre><code data-trim data-line-numbers>
+                                                          &lt;section data-name=&quot;Brown&quot; data-tag=&quot;nice&quot;&gt;
+                                                            &lt;section data-tag=&quot;cats, small&quot;&gt;Cat (brown, small, nice)&lt;/section&gt;
+                                                            &lt;section data-tag=&quot;dogs&quot;&gt;Dog (brown, nice)&lt;/section&gt;
+                                                            &lt;section data-tag=&quot;dogs, big&quot;&gt;Dog (brown, big, nice)&lt;/section&gt;
+                                                            &lt;section data-tag=&quot;horses&quot;&gt;Horse (brown, nice)&lt;/section&gt;
+                                                          &lt;/section&gt;
+                                                          &lt;section data-name=&quot;Black &amp;amp; white&quot;&gt;
+                                                            &lt;section data-tag=&quot;cats&quot;&gt;Cat (black &amp;amp; white)&lt;/section&gt;
+                                                            &lt;section data-tag=&quot;dogs, small&quot;&gt;Dog (black &amp;amp; white + small)&lt;/section&gt;
+                                                            &lt;section data-tag=&quot;horses&quot;&gt;Horse (black &amp;amp; white)&lt;/section&gt;
+                                                          &lt;/section&gt;</code></pre>
+                                        <p class="small">The above markup is used in all following examples.</p>
+                                        <p class="small">Note: 'data-tag' can can include multiple comma-separated tags. But 'data-name' can only contain a single term (which may consist of several words).</p>
+                                    </section>
+                                    <section>
+                                        <h4>JavaScript</h4>
+                                        <p>Load the script and make a reference to it in the Reveal plugin options.</p>
+                                        <pre><code class="hljs html" data-line-numbers>&lt;script src="plugin/tagteam/tagteam.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	Reveal.initialize({
+		plugins: [ Tagteam ]
+	});
+&lt;script&gt;</code></pre>
+                                        <p class="small">When using the Markdown plugin as well, load it first, so Tagteam can correctly find tagged or named sections.</p>
+                                    </section>
+                                </section>
+                                <section data-name="Tags" data-tag="intro">
+                                    <section>
+                                        <h2>Tags</h2>
+                                    </section>
+                                    <section>
+                                        <h4>Using a single <code>t</code> parameter</h4>
+                                        <p class="small"><code class="url">.../demo.html?t=dogs</code></p>
+                                        <p class="small">Test it here now: <a href="demo.html?t=dogs">demo.html?t=dogs</a></p>
+                                    </section>
+                                    <section>
+                                        <h4>Using multiple <code>t</code> parameters</h4>
+                                        <p class="small"><code class="url">.../demo.html?t=dogs,cats</code></p>
+                                        <p class="small">Test it here now: <a href="demo.html?t=dogs,cats">demo.html?t=dogs,cats</a></p>
+                                    </section>
+                                    <section>
+                                        <h4>Using more specific <code>t</code> parameters</h4>
+                                        <p class="small">Use the plus sign to be more specific. <br>In this case we want all dogs, but only small cats.</p>
+                                        <p class="small"><code class="url">.../demo.html?t=dogs,cats+small</code></p>
+                                        <p class="small">Test it here now: <a href="demo.html?t=dogs,cats+small">demo.html?t=dogs,cats+small</a></p>
+                                    </section>
+                                    <section>
+                                        <h4>Using more specific <code>t</code> parameters</h4>
+                                        <p class="small">This works with nested tags as well.</p>
+                                        <p class="small"><code class="url">.../demo.html?t=small+cats,nice+horses</code></p>
+                                        <p class="small">Test it here now: <a href="demo.html?t=small+cats,nice+horses">demo.html?t=small+cats,nice+horses</a></p>
+                                    </section>
+                                </section>
+                                <section data-name="Names" data-tag="intro">
+                                    <section>
+                                        <h2>Names</h2>
+                                        <p>When ordering your presentation with nested sections, you can specify these to be shown in one fell swoop.</p>
+                                    </section>
+                                    <section>
+                                        <h4>Using an <code>n</code> parameter</h4>
+                                        <p class="small">There are two named stacks with vertical slides. Now we only want the first (data-name="Brown") stack.</p>
+                                        <p class="small"><code class="url">.../demo.html?n=brown</code></p>
+                                        <p class="small">Test it here now: <a href="demo.html?n=brown">demo.html?n=brown</a></p>
+                                    </section>
+                                    <section>
+                                        <h4>Using multiple <code>n</code> parameters</h4>
+                                        <p class="small"><code class="url">.../demo.html?n=brown,black+%26+white</code></p>
+                                        <p class="small">Test it here now: <a href="demo.html?n=brown,black+%26+white">demo.html?n=brown,black+%26+white</a></p>
+                                    </section>
+                                </section>
+                                <section data-name="Groups" data-tag="intro">
+                                    <section>
+                                        <h2>Groups</h2>
+                                        <p>Groups are predefined sets of tags and/or names.</p>
+                                    </section>
+                                    <section>
+                                        <h4>Setting a groups option</h4>
+                                        <p class="small">Each 'groups' object needs a name and an array of tags and/or an array of names.</p>
+                                        <pre><code class="hljs js" data-line-numbers>Reveal.initialize({
+    //...
+    tagteam: {
+        groups: {
+            "brownpets": {
+                names: ["brown"], tags: ["cats", "dogs"]
+            },
+            "bwhsd": {
+                names: ["black &amp; white"], tags: [ "horses", ["dogs", "small"] ]
+            }
+        }
+    },
+    plugins: [ Tagteam ]
+});</code></pre>
+                                        <p class="small">Note: In the 2nd group, the tags contain a nested array to be more specific (small dogs only).</p>
+                                    </section>
+                                    <section>
+                                        <h4>Using a <code>g</code> parameter</h4>
+                                        <p class="small"><code class="url">.../demo.html?g=brownpets</code></p>
+                                        <p class="small">Test it here now: <a href="demo.html?g=brownpets">demo.html?g=brownpets</a></p>
+                                    </section>
+                                    <section>For the <code>mandatorygroup</code> option, see the <a href="reveal.js-tagteam/demo.html" target="_blank">full demo</a>.</section>
+                                </section>
+                                <section data-name="Brown" data-tag="nice" data-visibility="hidden">
+                                    <section data-tag="cats, small">Cat (brown, small, nice)</section>
+                                    <section data-tag="dogs">Dog (brown, nice)</section>
+                                    <section data-tag="dogs, big">Dog (brown, big, nice)</section>
+                                    <section data-tag="horses">Horse (brown, nice)</section>
+                                </section>
+                                <section data-name="Black &amp; white" data-visibility="hidden">
+                                    <section data-tag="cats">Cat (black &amp; white)</section>
+                                    <section data-tag="dogs, small">Dog (black &amp; white, small)</section>
+                                    <section data-tag="horses">Horse (black &amp; white)</section>
+                                </section>
+                                <section data-mandatory>There is no correct URL parameter set</section>
+                                <section data-tag="tagteam" data-state="hide-menubar">
+                                    <p>Thanks for trying out Tagteam!</p>
+                                </section>
+                                <section data-tag="keep" data-state="hide-menubar">Go <a href="demo.html">back to the start</a></section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-tagteam/demo.html" data-viewdemo="tagteam">View demo</a></div>
+                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-tagteam" target="_blank">Get the plugin</a></div>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>A plugin for Reveal.js which is used to dynamically show only certain sections in presentations when you don't want to show everything. It uses URL parameters to set the needed sections.</p>
+                    <p>An option to use groups is also provided. Also, the need to enter a group can be set, to avoid the possibility to view all slides (no parameters at all), as a simple safeguard.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="lane narrow white">
         <div class="container">
             <p>Made by Martino.</p>
@@ -1057,6 +1239,7 @@ if uglydog == false
     <script src="reveal.js-copycode/plugin/copycode/copycode.js"></script>
     <script src="reveal.js-fontsfirst/plugin/fontsfirst/fontsfirst.js"></script>
     <script src="reveal.js-doghouse/plugin/doghouse/doghouse.js"></script>
+    <script src="reveal.js-tagteam/plugin/tagteam/tagteam.js"></script>
     <script src="demo.js"></script>
     <script src="https://unpkg.com/requirejs@2.3.5/require.js"></script>
     <script>

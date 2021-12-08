@@ -114,6 +114,27 @@
 	    },
 	    plugins: [Smallcontrol, RevealHighlight]
 	  }
+	}, {
+	  name: "tagteam",
+	  config: {
+	    tagteam: {
+	      groups: {
+	        "bwhsd": {
+	          names: ["black & white"],
+	          tags: ["horses", ["dogs", "small"]]
+	        },
+	        "brownpets": {
+	          names: ["brown"],
+	          tags: ["cats", "dogs"]
+	        }
+	      }
+	    },
+	    simplemenu: {
+	      selectby: "data-name",
+	      auto: true
+	    },
+	    plugins: [Tagteam, Simplemenu, RevealHighlight]
+	  }
 	}];
 	var decks = [];
 	plugs.forEach(function (plug) {
@@ -140,5 +161,26 @@
 	dropdown.addEventListener("click", function (e) {
 	  label.click();
 	}, false);
+
+	var changeParamExample = function changeParamExample(thisDeck) {
+	  var theDeck = thisDeck.getRevealElement();
+	  var paramExample = theDeck.querySelector('#exampleParameter');
+
+	  if (paramExample) {
+	    var url = new URL(window.location);
+	    var urlparams = new URLSearchParams(url.search);
+	    var t = urlparams.get('t');
+	    var n = urlparams.get('n');
+	    var g = urlparams.get('g');
+
+	    if (t || n || g) {
+	      paramExample.innerHTML = ".../demo.html" + url.search;
+	    } else {
+	      paramExample.innerHTML = ".../demo.html?t=tagteam";
+	    }
+	  }
+	};
+
+	decks["tagteam"].addEventListener('ready', changeParamExample(decks["tagteam"]));
 
 })));
