@@ -473,6 +473,9 @@ pre code {
   .no-fsfx .fsfx-disabled {
     display: block; }
 
+.no-fsfx .fsfx-enabled {
+  display: none; }
+
 .fsbutton {
   border-radius: 6px;
   display: none;
