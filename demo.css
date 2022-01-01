@@ -296,6 +296,24 @@ a.button {
       -ms-transform: none;
           transform: none; }
 
+.reveal:not(:-webkit-full-screen) .small {
+  font-size: .66em; }
+
+.reveal:not(:-ms-fullscreen) .small {
+  font-size: .66em; }
+
+.reveal:not(:fullscreen) .small {
+  font-size: .66em; }
+
+.reveal:not(:-webkit-full-screen) ul {
+  font-size: .9em; }
+
+.reveal:not(:-ms-fullscreen) ul {
+  font-size: .9em; }
+
+.reveal:not(:fullscreen) ul {
+  font-size: .9em; }
+
 .slides {
   opacity: 0;
   -webkit-transition: opacity .5s ease;
@@ -337,6 +355,19 @@ pre code {
 .reveal .lowercase {
   text-transform: none; }
 
+.reveal#verticator section section {
+  padding-left: 75px;
+  padding-right: 75px; }
+
+.reveal#verticator:not(:-webkit-full-screen) .verticator {
+  right: 5px; }
+
+.reveal#verticator:not(:-ms-fullscreen) .verticator {
+  right: 5px; }
+
+.reveal#verticator:not(:fullscreen) .verticator {
+  right: 5px; }
+
 /* EXAMPLE FLAG LANGUAGE CHOOSER */
 .reveal .flags {
   display: block;
@@ -351,11 +382,11 @@ pre code {
     width: 0;
     height: 0; }
   .reveal .flags img {
-    border-radius: 40px;
+    border-radius: 35px;
     border: 4px solid #1a1626;
     margin: 0;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
@@ -366,6 +397,21 @@ pre code {
     pointer-events: none;
     opacity: 1;
     border: 4px solid white; }
+
+.reveal:-webkit-full-screen .flags img {
+  border-radius: 35px;
+  width: 60px;
+  height: 60px; }
+
+.reveal:-ms-fullscreen .flags img {
+  border-radius: 35px;
+  width: 60px;
+  height: 60px; }
+
+.reveal:fullscreen .flags img {
+  border-radius: 35px;
+  width: 60px;
+  height: 60px; }
 
 /* EXAMPLE DROPDOWN WITH LANGUAGE CHOOSER */
 .menubar .dropdown {
