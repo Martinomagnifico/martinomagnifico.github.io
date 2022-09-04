@@ -116,6 +116,35 @@ body, html {
           flex: 1;
 }
 
+.row.buttonrow, .buttongroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 16px;
+}
+
+.buttonrow {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.buttonrow a.button {
+  display: inline-block;
+  width: auto;
+}
+.buttonrow a.button:last-child {
+  margin: 0 0 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  a.button.hideonsmall {
+    display: none;
+  }
+}
+
 .col-half {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 50%;
@@ -256,22 +285,54 @@ a {
   transition: all 0.15s ease-in-out;
 }
 
-a.button {
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  text-align: inherit;
+}
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+a.button, button.button {
+  color: white;
+  font-size: inherit;
   text-decoration: none;
   display: block;
   background: #007AC3;
-  width: 100%;
   max-width: 180px;
   margin: 0 auto;
   padding: 0.5rem;
   border-radius: 0.2rem;
   -webkit-box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
           box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+  border: 2px solid transparent;
 }
-a.button:hover {
+a.button:hover, button.button:hover {
   background: #008add;
   -webkit-box-shadow: 0 0.5rem 1rem black;
           box-shadow: 0 0.5rem 1rem black;
+}
+a.button.secondary, button.button.secondary {
+  background: none;
+  border: 2px solid currentColor;
+  color: #007AC3;
+}
+a.button.secondary:hover, button.button.secondary:hover {
+  color: #008add;
 }
 
 .col-half > a > img {
@@ -340,6 +401,36 @@ a.button:hover {
   cursor: default;
 }
 .fullscreen .holder .reveal, .fullscreen .holder .reveal.focused {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.holder .reveal:-webkit-full-screen {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: none;
+          transform: none;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.holder .reveal:-ms-fullscreen {
+  border: none;
+  box-shadow: none;
+  -ms-transform: none;
+      transform: none;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.holder .reveal:fullscreen {
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -436,6 +527,30 @@ p kbd {
 
 pre code {
   line-height: 1.5;
+}
+
+.reveal .progress {
+  background: rgba(66, 175, 250, 0.3);
+  font-size: 10px;
+  height: 0.3em;
+  border-radius: 0.25em;
+  left: 0.5em;
+  bottom: 0.5em;
+  right: 0.5em;
+  width: calc(100% - 1em);
+  overflow: hidden;
+}
+
+.reveal:-webkit-full-screen .progress {
+  font-size: 12px;
+}
+
+.reveal:-ms-fullscreen .progress {
+  font-size: 12px;
+}
+
+.reveal:fullscreen .progress {
+  font-size: 12px;
 }
 
 .reveal .lowercase {
@@ -873,12 +988,12 @@ html.wf-active.selfhostfonts .reveal .fontinfo:after {
   content: "This page can (or could) not use remote (Google/Typekit) fonts and falls back to the self-hosted font.";
 }
 
-#doghouse .row {
+#doghouse .row, #counteract .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-#doghouse .row .col {
+#doghouse .row .col, #counteract .row .col {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -890,26 +1005,26 @@ html.wf-active.selfhostfonts .reveal .fontinfo:after {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-#doghouse .row .col:first-child {
+#doghouse .row .col:first-child, #counteract .row .col:first-child {
   padding-right: 12px;
 }
-#doghouse .row .col:last-child {
+#doghouse .row .col:last-child, #counteract .row .col:last-child {
   padding-left: 12px;
 }
-.reveal #doghouse p, #doghouse p {
+.reveal #doghouse p, #doghouse p, .reveal #counteract p, #counteract p {
   font-size: 32px;
   margin-top: 36px;
 }
-.reveal #doghouse p.text-left, #doghouse p.text-left {
+.reveal #doghouse p.text-left, #doghouse p.text-left, .reveal #counteract p.text-left, #counteract p.text-left {
   text-align: left;
 }
-.reveal #doghouse p.large-text, #doghouse p.large-text {
+.reveal #doghouse p.large-text, #doghouse p.large-text, .reveal #counteract p.large-text, #counteract p.large-text {
   font-size: 32px;
 }
-.reveal #doghouse p i, #doghouse p i {
+.reveal #doghouse p i, #doghouse p i, .reveal #counteract p i, #counteract p i {
   font-style: italic;
 }
-#doghouse pre {
+#doghouse pre, #counteract pre {
   font-size: 28px;
   width: 100%;
   margin: 0;
@@ -926,21 +1041,21 @@ html.wf-active.selfhostfonts .reveal .fontinfo:after {
   white-space: pre-wrap;
   cursor: default;
 }
-#doghouse pre:focus {
+#doghouse pre:focus, #counteract pre:focus {
   outline: none;
   border: 1px solid blue;
 }
-#doghouse pre code {
+#doghouse pre code, #counteract pre code {
   border-radius: 4px;
   padding: 12px 18px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   line-height: 36px;
 }
-#doghouse pre code:focus {
+#doghouse pre code:focus, #counteract pre code:focus {
   outline: none;
 }
-#doghouse pre + pre {
+#doghouse pre + pre, #counteract pre + pre {
   margin-top: 24px;
 }
 
@@ -955,4 +1070,21 @@ html.wf-active.selfhostfonts .reveal .fontinfo:after {
 code.url {
   background: #ddd;
   color: #222D2F;
+}
+
+#counteract figcaption {
+  padding: 0.5em;
+}
+#counteract .left {
+  text-align: left;
+}
+#counteract .example {
+  padding: 0.5em 1em;
+  font-size: 0.6em;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 1em;
+}
+#counteract pre code.hljs {
+  background: rgba(255, 255, 255, 0.1);
 }

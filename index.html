@@ -13,6 +13,49 @@
     <link rel="stylesheet" href="dist/theme/black.css">
     <link rel="stylesheet" href="demo.css">
     <link rel="stylesheet" href="reveal.js-copycode/plugin/highlight/monokai.css">
+    <style>
+        [data-count-titlecount]:after {
+            content: attr(data-count-titlecount);
+            background: #008add;
+            display: inline-block;
+            border-radius: 42px;
+            width: 1.20em;
+            height: 1.20em;
+            line-height: 1.25em;
+            margin-left: 0.25em;
+        }
+
+        figcaption:after {
+            content: " " attr(data-count-figcaption);
+            color: #008add;
+        }
+
+        ol.list,
+        ol.stoplist {
+            padding-left: 0;
+            margin-left: 0;
+            list-style: none;
+        }
+
+        ol.list li:before {
+            content: attr(data-count-mylist) ". ";
+            color: #008add;
+        }
+
+        ol.stoplist li:before {
+            content: attr(data-count-stoplist) ". ";
+            color: #008add;
+        }
+
+        h4[data-count-mainnumber]:before {
+            content: attr(data-count-mainnumber) ". ";
+            color: #008add;
+        }
+
+        section h4[data-count-mainnumber][data-count-subnumber]:before {
+            content: attr(data-count-mainnumber) "." attr(data-count-subnumber) ". ";
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +66,7 @@
     </div>
     <div class="lane narrow white">
         <div class="container">
-            <p>A set of plugins for Reveal.js: <a href="#lane-appearance">Appearance</a>, <a href="#lane-internation">Internation</a>, <a href="#lane-verticator">Verticator</a>, <a href="#lane-smallcontrol">Smallcontrol</a>, <a href="#lane-fsfx">FsFx</a>, <a href="#lane-simplemenu">Simplemenu</a>, <a href="#lane-relativenumber">Relativenumber</a>, <a href="#lane-copycode">CopyCode</a>, <a href="#lane-fontsfirst">FontsFirst</a>, <a href="#lane-doghouse">Doghouse</a> and <a href="#lane-tagteam">Tagteam</a>.
+            <p>A set of plugins for Reveal.js: <a href="#lane-appearance">Appearance</a>, <a href="#lane-internation">Internation</a>, <a href="#lane-verticator">Verticator</a>, <a href="#lane-smallcontrol">Smallcontrol</a>, <a href="#lane-fsfx">FsFx</a>, <a href="#lane-simplemenu">Simplemenu</a>, <a href="#lane-relativenumber">Relativenumber</a>, <a href="#lane-copycode">CopyCode</a>, <a href="#lane-fontsfirst">FontsFirst</a>, <a href="#lane-doghouse">Doghouse</a>, <a href="#lane-tagteam">Tagteam</a> and <a href="#lane-counteract">CounterAct</a>.
             </p>
         </div>
     </div>
@@ -117,9 +160,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-appearance/demo.html" target="_blank" data-viewdemo="appearance">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-appearance" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="appearance">View demo</button><a class="button secondary" href="https://martinomagnifico.github.io/reveal.js-appearance/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-appearance" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -332,9 +376,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-internation/demo.html" target="_blank" data-viewdemo="internation">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-internation" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="internation">View demo</button><a class="button secondary" href="https://martinomagnifico.github.io/reveal.js-internation/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-internation" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -402,9 +447,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-verticator/demo.html" target="_blank" data-viewdemo="verticator">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-verticator" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="verticator">View demo</button><a class="button secondary" href="https://martinomagnifico.github.io/reveal.js-verticator/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-verticator" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -467,9 +513,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-smallcontrol/demo.html" target="_blank" data-viewdemo="smallcontrol">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-smallcontrol" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="smallcontrol">View demo</button>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-smallcontrol" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -536,9 +583,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-fsfx/demo.html" target="_blank" data-viewdemo="fsfx">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-fsfx" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="fsfx">View demo</button>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-fsfx" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -571,6 +619,7 @@
                                 </section>
                                 <section id="firstmenuitem">
                                     <section class="center">
+                                        <h4>What?</h4>
                                         <p>In Powerpoint you can make slides with a nice bottom- or top bar in which the active menu item is highlighted. This menu works in the same way, but automatically.</p>
                                     </section>
                                     <section class="center">
@@ -595,6 +644,7 @@
                                     </section>
                                     <section>
                                         <h4>JavaScript</h4>
+                                        <h5>Testing123</h5>
                                         <p class="small">Load the script and make a reference to it in the Reveal plugin options.</p>
                                         <pre><code class="hljs html" data-line-numbers>&lt;script src="plugin/simplemenu/simplemenu.js"&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -717,9 +767,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-simplemenu/demo.html" target="_blank" data-viewdemo="simplemenu">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-simplemenu" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="simplemenu">View demo</button>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-simplemenu" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -766,9 +817,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-relativenumber/demo.html" target="_blank" data-viewdemo="relativenumber">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-relativenumber" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="relativenumber">View demo</button>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-relativenumber" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -861,9 +913,10 @@ Reveal.initialize({
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-copycode/demo.html" target="_blank" data-viewdemo="copycode">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-copycode" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="copycode">View demo</button>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-copycode" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -911,9 +964,10 @@ Reveal.initialize({
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-fontsfirst/demo.html" target="_blank" data-viewdemo="fontsfirst">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-fontsfirst" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="fontsfirst">View demo</button><a class="button secondary" href="https://martinomagnifico.github.io/reveal.js-fontsfirst/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-fontsfirst" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -1029,9 +1083,10 @@ if uglydog == false
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-doghouse/demo.html" target="_blank" data-viewdemo="doghouse">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-doghouse" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="doghouse">View demo</button><a class="button secondary" href="https://martinomagnifico.github.io/reveal.js-doghouse/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-doghouse" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -1211,9 +1266,10 @@ if uglydog == false
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-half"><a class="button" href="https://martinomagnifico.github.io/reveal.js-tagteam/demo.html" target="_blank" data-viewdemo="tagteam">View demo</a></div>
-                        <div class="col-half"><a class="button" href="https://github.com/martinomagnifico/reveal.js-tagteam" target="_blank">Get the plugin</a></div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="tagteam">View demo</button><a class="button secondary" href="https://martinomagnifico.github.io/reveal.js-tagteam/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-tagteam" target="_blank">Get the plugin</a>
                     </div>
                 </div>
                 <div class="col-half rpb">
@@ -1223,26 +1279,139 @@ if uglydog == false
             </div>
         </div>
     </div>
+    <div class="lane" id="lane-counteract">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>CounterAct</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder">
+                        <div class="reveal" id="counteract" style="background-image: url('//martinomagnifico.github.io/reveal.js-counteract/screenshot.png')">
+                            <div class="slides">
+                                <!--include ../plugins/counteract/html/slides/_slides.pug-->
+                                <section class="center">
+                                    <h1>CounterAct</h1>
+                                    <h4>A <span class="titlecount">counter</span> for Reveal.js</h4>
+                                </section>
+                                <section class="center">
+                                    <h2>Example</h2>
+                                </section>
+                                <section>
+                                    <h3>Counting occurences</h3>
+                                    <p class="small">Counting occurences will count up across all slides.</p>
+                                    <div class="example">
+                                        <figcaption>This is figcaption number</figcaption>
+                                        <figcaption>This is figcaption number</figcaption>
+                                    </div>
+                                </section>
+                                <section>
+                                    <h3>Counting in lists</h3>
+                                    <p class="small">In and across lists and slides, these keep counting up.</p>
+                                    <div class="row example">
+                                        <div class="col">
+                                            <p class="left" style="margin-top: 0; margin-bottom: 0.2em">A list</p>
+                                            <ol class="list">
+                                                <li>List item</li>
+                                                <li>List item</li>
+                                            </ol>
+                                        </div>
+                                        <div class="col">
+                                            <p class="left" style="margin-top: 0; margin-bottom: 0.2em">An other list</p>
+                                            <ol class="list">
+                                                <li>List item</li>
+                                                <li>List item</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <h3>Resetting counters</h3>
+                                    <p class="small">Resets must be parents of selectors.</p>
+                                    <div class="row example">
+                                        <div class="col">
+                                            <p class="left" style="margin-top: 0; margin-bottom: 0.2em">A list</p>
+                                            <ol class="stoplist">
+                                                <li>List item</li>
+                                                <li>List item</li>
+                                            </ol>
+                                        </div>
+                                        <div class="col">
+                                            <p class="left" style="margin-top: 0; margin-bottom: 0.2em">An other list</p>
+                                            <ol class="stoplist">
+                                                <li>List item</li>
+                                                <li>List item</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="countme center">
+                                    <h3>Incrementing with other elements</h3>
+                                    <div class="example">
+                                        <h4 class="countme">This h4 is counted</h4>
+                                    </div>
+                                </section>
+                                <section class="countme center">
+                                    <p class="small">Increments must be parents of selectors and children of resets.</p>
+                                    <div class="example">
+                                        <h4 class="countme">This h4 is also counted</h4>
+                                    </div>
+                                </section>
+                                <section class="countme center">
+                                    <section class="center">
+                                        <h3>Combine increment and reset</h3>
+                                        <div class="example">
+                                            <h4 class="countme">This h4 has two counters</h4>
+                                        </div>
+                                    </section>
+                                    <section class="center">
+                                        <div class="example">
+                                            <h4 class="countme">And this one as well</h4>
+                                        </div>
+                                        <p class="small">By combining increments and resets, you can count things like vertical sections, and sections inside them. If sections are hidden with <code>data-visibility</code>, they will not increment or add to the count of selectors in them.</p>
+                                    </section>
+                                </section>
+                                <section class="countme center">
+                                    <h4 class="countme">Happy counting!</h4>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall" data-viewdemo="counteract">View demo</button><a class="button secondary" href="https://martinomagnifico.github.io/reveal.js-counteract/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-counteract" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>Reveal.js optimises the performance of presentations by hiding slides that are more than a few steps in the future. </p>
+                    <p>As per the CSS specification, CSS counters simply don’t work in those hidden slides. </p>
+                    <p>CounterAct goes around this limitation by using data-attributes on the elements that you want to count. Similar to CSS counters, CounterAct lets you define multiple counters. This way, you can have nice numbers in your presentation again.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="lane narrow white">
         <div class="container">
-            <p>Made by Martino.</p>
+            <p>Made by <a href="https://github.com/Martinomagnifico">Martino</a>.</p>
         </div>
     </div>
     <script src="dist/reveal.js"></script>
     <script src="reveal.js-copycode/plugin/highlight/highlight.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <script src="reveal.js-appearance/plugin/appearance/appearance.js?1v9n4"></script>
-    <script src="reveal.js-internation/plugin/internation/internation.js?1v9n4"></script>
-    <script src="reveal.js-verticator/plugin/verticator/verticator.js?1v9n4"></script>
-    <script src="reveal.js-smallcontrol/plugin/smallcontrol/smallcontrol.js?1v9n4"></script>
-    <script src="reveal.js-fsfx/plugin/fsfx/fsfx.js?1v9n4"></script>
-    <script src="reveal.js-simplemenu/plugin/simplemenu/simplemenu.js?1v9n4"></script>
-    <script src="reveal.js-relativenumber/plugin/relativenumber/relativenumber.js?1v9n4"></script>
-    <script src="reveal.js-copycode/plugin/copycode/copycode.js?1v9n4"></script>
-    <script src="reveal.js-fontsfirst/plugin/fontsfirst/fontsfirst.js?1v9n4"></script>
-    <script src="reveal.js-doghouse/plugin/doghouse/doghouse.js?1v9n4"></script>
-    <script src="reveal.js-tagteam/plugin/tagteam/tagteam.js?1v9n4"></script>
-    <script src="demo.js?1v9n4"></script>
+    <script src="reveal.js-appearance/plugin/appearance/appearance.js?llue9"></script>
+    <script src="reveal.js-internation/plugin/internation/internation.js?llue9"></script>
+    <script src="reveal.js-verticator/plugin/verticator/verticator.js?llue9"></script>
+    <script src="reveal.js-smallcontrol/plugin/smallcontrol/smallcontrol.js?llue9"></script>
+    <script src="reveal.js-fsfx/plugin/fsfx/fsfx.js?llue9"></script>
+    <script src="reveal.js-simplemenu/plugin/simplemenu/simplemenu.js?llue9"></script>
+    <script src="reveal.js-relativenumber/plugin/relativenumber/relativenumber.js?llue9"></script>
+    <script src="reveal.js-copycode/plugin/copycode/copycode.js?llue9"></script>
+    <script src="reveal.js-fontsfirst/plugin/fontsfirst/fontsfirst.js?llue9"></script>
+    <script src="reveal.js-doghouse/plugin/doghouse/doghouse.js?llue9"></script>
+    <script src="reveal.js-tagteam/plugin/tagteam/tagteam.js?llue9"></script>
+    <script src="reveal.js-counteract/plugin/counteract/counteract.js?llue9"></script>
+    <script src="demo.js?llue9"></script>
     <script src="https://unpkg.com/requirejs@2.3.5/require.js"></script>
     <script>
         require({
