@@ -153,17 +153,17 @@ body, html {
   display: inline-block;
 }
 [data-prefer=internal] .external {
-  display: none;
+  display: none !important;
 }
 .no-fsfx [data-prefer=internal] .internal {
-  display: none;
+  display: none !important;
 }
 .no-fsfx [data-prefer=internal] .external {
   display: inline-block;
 }
 
 .no-fsfx [data-prefer=both] .internal {
-  display: none;
+  display: none !important;
 }
 .no-fsfx [data-prefer=both] .external {
   display: inline-block;
