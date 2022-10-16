@@ -145,6 +145,30 @@ body, html {
   }
 }
 
+[data-viewdemo] {
+  cursor: pointer;
+}
+
+[data-prefer=internal] .internal {
+  display: inline-block;
+}
+[data-prefer=internal] .external {
+  display: none;
+}
+.no-fsfx [data-prefer=internal] .internal {
+  display: none;
+}
+.no-fsfx [data-prefer=internal] .external {
+  display: inline-block;
+}
+
+.no-fsfx [data-prefer=both] .internal {
+  display: none;
+}
+.no-fsfx [data-prefer=both] .external {
+  display: inline-block;
+}
+
 .col-half {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 50%;
