@@ -424,87 +424,6 @@ a.button.secondary:hover, button.button.secondary:hover {
           transform: scale(1.03);
   cursor: default;
 }
-.fullscreen .holder .reveal, .fullscreen .holder .reveal.focused {
-  border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-transform: none;
-      -ms-transform: none;
-          transform: none;
-  width: 100%;
-  height: 100%;
-  cursor: default;
-}
-.holder .reveal:-webkit-full-screen {
-  border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-transform: none;
-          transform: none;
-  width: 100%;
-  height: 100%;
-  cursor: default;
-}
-.holder .reveal:-ms-fullscreen {
-  border: none;
-  box-shadow: none;
-  -ms-transform: none;
-      transform: none;
-  width: 100%;
-  height: 100%;
-  cursor: default;
-}
-.holder .reveal:fullscreen {
-  border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-transform: none;
-      -ms-transform: none;
-          transform: none;
-  width: 100%;
-  height: 100%;
-  cursor: default;
-}
-
-.reveal-viewport.focused:-webkit-full-screen {
-  border: none;
-  -webkit-transform: none;
-          transform: none;
-}
-
-.reveal-viewport.focused:-ms-fullscreen {
-  border: none;
-  -ms-transform: none;
-      transform: none;
-}
-
-.reveal-viewport.focused:fullscreen {
-  border: none;
-  -webkit-transform: none;
-      -ms-transform: none;
-          transform: none;
-}
-
-.reveal:not(:-webkit-full-screen) .small {
-  font-size: 0.66em;
-}
-
-.reveal:not(:-ms-fullscreen) .small {
-  font-size: 0.66em;
-}
-
-.reveal:not(:fullscreen) .small {
-  font-size: 0.66em;
-}
-.reveal:not(:-webkit-full-screen) ul {
-  font-size: 0.9em;
-}
-.reveal:not(:-ms-fullscreen) ul {
-  font-size: 0.9em;
-}
-.reveal:not(:fullscreen) ul {
-  font-size: 0.9em;
-}
 
 .slides {
   opacity: 0;
@@ -749,17 +668,13 @@ pre code {
   left: 1em;
 }
 
-.reveal.reveal-viewport .backgrounds {
-  -webkit-transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
-  -o-transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
-  transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
+.reveal.focused .backgrounds {
+  -webkit-transition: background-color 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
+  -o-transition: background-color 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
+  transition: background-color 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
 }
-
-.reveal.reveal-viewport.fullscreen .backgrounds {
-  -webkit-transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
-  -o-transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
-  transition: all 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
-  background-color: DarkSlateGray;
+.reveal.focused.fullscreen .backgrounds {
+  background: DarkSlateGray;
 }
 
 .fsfx-disabled {
@@ -775,7 +690,6 @@ pre code {
 
 .fsbutton {
   border-radius: 6px;
-  display: none;
   text-decoration: none;
   cursor: pointer;
   text-align: center;
@@ -843,6 +757,10 @@ pre code {
 
 .reveal > .icon-fs:after {
   margin-left: 0;
+}
+
+.icon-fsexit:after {
+  content: "-";
 }
 
 .icon-fsexit:after {
