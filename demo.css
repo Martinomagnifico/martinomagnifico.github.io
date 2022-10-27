@@ -425,6 +425,25 @@ a.button.secondary:hover, button.button.secondary:hover {
   cursor: default;
 }
 
+.reveal-viewport.focused:-webkit-full-screen {
+  border: none;
+  -webkit-transform: none;
+          transform: none;
+}
+
+.reveal-viewport.focused:-ms-fullscreen {
+  border: none;
+  -ms-transform: none;
+      transform: none;
+}
+
+.reveal-viewport.focused:fullscreen {
+  border: none;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+}
+
 .slides {
   opacity: 0;
   -webkit-transition: opacity 0.5s ease;
@@ -673,6 +692,14 @@ pre code {
   -o-transition: background-color 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
   transition: background-color 3s cubic-bezier(0.26, 0.86, 0.44, 0.985) !important;
 }
+.reveal.focused.fullscreen {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
 .reveal.focused.fullscreen .backgrounds {
   background: DarkSlateGray;
 }
@@ -732,6 +759,42 @@ pre code {
 .slides .fsbutton:hover {
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.bigbutton {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  border: none;
+  border-radius: 0.25em;
+  background: var(--r-main-color);
+  color: var(--r-main-inverse-color);
+  font-size: clamp(1rem, 1vw + 1rem, 2rem);
+  padding: 0.5em 0.6em;
+  margin: 1em;
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  -webkit-transition: color 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.reveal.focused.fullscreen .bigbutton {
+  color: DarkSlateGray;
+}
+.bigbutton:after {
+  margin-left: 12px;
 }
 
 @font-face {
