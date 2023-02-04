@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="dist/theme/black.css">
-    <link rel="stylesheet" href="demo.css?uj4od">
+    <link rel="stylesheet" href="demo.css?uyeuc">
     <link rel="stylesheet" href="reveal.js-copycode/plugin/highlight/monokai.css">
 </head>
 
@@ -579,11 +579,7 @@
                     <div class="holder">
                         <div class="reveal" id="simplemenu" style="background-image: url('//martinomagnifico.github.io/reveal.js-simplemenu/screenshot.png')">
                             <div class="menubar">
-                                <ul class="menu">
-                                    <li><a href="#/firstmenuitem">What it does</a></li>
-                                    <li><a href="#/secondmenuitem">Set it up</a></li>
-                                    <li><a href="#/thirdmenuitem">Options</a></li>
-                                </ul>
+                                <ul class="menu"></ul>
                             </div>
                             <div class="slides">
                                 <section class="center" data-transition="fade" data-state="hide-menubar hide-menu">
@@ -610,9 +606,6 @@
                                             <li>Update the menu state during navigation</li>
                                         </ul>
                                     </section>
-                                    <section class="center">
-                                        <p class="small">Menu items can only be regular horizontal slides or vertical stacks.</p><img data-src="img/simplemenusetup.svg">
-                                    </section>
                                 </section>
                                 <section data-name="Set it up">
                                     <section class="center">
@@ -620,33 +613,14 @@
                                     </section>
                                     <section>
                                         <h4>JavaScript</h4>
-                                        <p class="small">Load the script and make a reference to it in the Reveal plugin options:</p>
-                                        <pre><code class="hljs html" data-line-numbers>&lt;script src="plugin/simplemenu/simplemenu.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-	Reveal.initialize({
-		plugins: [ Simplemenu ]
-	});
-&lt;script&gt;</code></pre>
+                                        <p>Load the script and make a reference to it in the Reveal plugin options</p>
                                     </section>
                                     <section>
                                         <h4>HTML Markup</h4>
-                                        <p class="small">(Markdown is also supported, see the <a href="demo-markdown.html" target="_blank">Markdown</a> demo.) <br> Give your sections a <code>data-name</code>:</p>
-                                        <pre><code class="hljs html" data-line-numbers="5-10">&lt;div class="slides"&gt;
-    &lt;section&gt;
-        //...
-    &lt;/section&gt;
-    &lt;section data-name="What it does"&gt;
-        //...
-    &lt;/section&gt;
-    &lt;section data-name="Set it up"&gt;
-        //...
-    &lt;/section&gt;
-    //...
-&lt;/div&gt;</code></pre>
-                                        <p class="small">Add <code>data-sm="false"</code> to named sections you don’t want to show in the menu.</p>
+                                        <p>Setup your sections with data-names.(Markdown is also supported, see the <a href="demo-markdown.html" target="_blank">Markdown</a> demo.)</p>
+                                        <p>Add <code>data-sm="false"</code> to named sections you don’t want to show in the menu.</p>
                                     </section>
                                     <section>
-                                        <h4>HTML Markup</h4>
                                         <p class="small">Add a menubar (header and/or footer), with an empty menu, through the options:</p>
                                         <pre><code class="hljs javascript" data-line-numbers="4,5,6,7">&hellip;
 Reveal.initialize({
@@ -657,182 +631,13 @@ Reveal.initialize({
         }
     },
     plugins: [ Simplemenu ]
-</code></pre>
-                                    </section>
-                                    <section>
-                                        <h4>HTML Markup</h4>
-                                        <p class="small">… or manually:</p>
-                                        <pre><code data-line-numbers="1,2,3">&lt;div class="menubar"&gt;
-    &lt;ul class="menu"&gt;&lt;/ul&gt; <!--Keep empty-->
-&lt;/div&gt;
-&lt;div class="slides"&gt;
-    &lt;section&gt;
-        //...
-    &lt;/section&gt;
-    //...
-&lt;/div&gt;</code></pre>
-                                    </section>
-                                    <section>
-                                        <h4>HTML Markup</h4>
-                                        <p class="small">You can also add a TOC slide:</p>
-                                        <pre><code data-line-numbers="7">&lt;div class="slides"&gt;
-    &lt;section&gt;
-        &lt;h1&gt;My presentation&lt;/h1&gt;
-    &lt;/section&gt;
-    &lt;section&gt;
-        &lt;h2&gt;Agenda&lt;/h2&gt;
-        &lt;ul class="menu"&gt;&lt;/ul&gt; <!--Keep empty-->
-    &lt;/section&gt;
-    &lt;section data-name="What it does"&gt;
-        //...
-    &lt;/section&gt;
-    &lt;section data-name="Set it up"&gt;
-        //...
-    &lt;/section&gt;
-    //...
-&lt;/div&gt;
+
 </code></pre>
                                     </section>
                                     <section>
                                         <h4>That’s it! </h4>
                                         <p>The setup above is the default (auto) way of linking the menu with the sections. </p>
                                         <p class="small">There is also a manual way, where the author creates the links in the menu(s) manually. See <a href="demo-manual.html">demo-manual.html</a>.</p>
-                                    </section>
-                                </section>
-                                <section class="center" data-name="Options">
-                                    <section class="center">
-                                        <h2>Options</h2>
-                                        <div class="centerblock">
-                                            <ol class="twocol" style="margin-right: 5%">
-                                                <li>menubarclass</li>
-                                                <li>menuclass</li>
-                                                <li>activeclass</li>
-                                                <li>activeelement</li>
-                                                <li>selectby</li>
-                                                <li>barhtml</li>
-                                                <li>flat</li>
-                                                <li>scale</li>
-                                                <li>csspath</li>
-                                            </ol>
-                                        </div>
-                                    </section>
-                                    <section>
-                                        <h4>Option 1: menubarclass</h4>
-                                        <p class="small">The menubarclass option sets the classname of menubars. </p>
-                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
-	//...
-	simplemenu: {
-	    menubarclass: "menubar"
-	},
-	plugins: [ Simplemenu ]
-</code></pre>
-                                        <p class="small">Simplemenu will show the menubar(s) on all pages. If you do not want to show the menubar on certain pages, use <code>data-state="hide-menubar"</code> on that section. This behaviour also works when exporting to PDF using the Reveal.js <code>?print-pdf</code> option.</p>
-                                    </section>
-                                    <section>
-                                        <h4>Option 2: menuclass</h4>
-                                        <p class="small">The menuclass option sets the classname of the menu. </p>
-                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
-	//...
-	simplemenu: {
-	    menuclass: "menu"
-	},
-	plugins: [ Simplemenu ]
-</code></pre>
-                                        <p class="small">Simplemenu looks inside this menu for list items (LI's).</p>
-                                    </section>
-                                    <section>
-                                        <h4>Option 3: activeclass</h4>
-                                        <p class="small">The activeclass option is the class an active menuitem gets.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
-	//...
-	simplemenu: {
-	    activeclass: "active"
-	},
-	plugins: [ Simplemenu ]
-</code></pre>
-                                    </section>
-                                    <section>
-                                        <h4>Option 4: activeelement</h4>
-                                        <p class="small">The activeelement option sets the item that gets the active class.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
-	//...
-	simplemenu: {
-	    activeelement: "li"
-	},
-	plugins: [ Simplemenu ]</code></pre>
-                                        <p class="small">You may want to change it to the anchor inside the li: activeelement: 'a'.</p>
-                                    </section>
-                                    <section>
-                                        <h4>Option 5: selectby</h4>
-                                        <p class="small"><em>This option is only needed when adding a menu manually. </em> You then need to link sections to the menu items. The selectby option finds the active slide or stack.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
-	//...
-	simplemenu: {
-	    selectby: "id"
-	},
-	plugins: [ Simplemenu ]
-</code></pre>
-                                        <p class="small">By default it is 'id', but can also be set to 'data-name'. If set to data-name, Simplemenu will compare the text content of the link to the section. Then <code>&lt;a(href="#")&gt;What it does&lt;/a&gt;</code> will link to <code>&lt;section(data-name="What it does")&gt;&lt;/section&gt;</code>.</p>
-                                    </section>
-                                    <section>
-                                        <h4>Option 6: barhtml</h4>
-                                        <p class="small">Instead of editing your HTML template, you can let Simplemenu add a header- or footerbar. You can include any HTML in it, like an empty menu (that will be automatically filled with links by Simplemenu), or a logo.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers="4-7">Reveal.initialize({
-	//...
-	simplemenu: {
-	    barhtml: { 
-	        header: "&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;/div&gt;",
-	        footer: ""
-	    }
-	},
-	plugins: [ Simplemenu ]
-</code></pre>
-                                    </section>
-                                    <section>
-                                        <h4>Option 6: barhtml (continued)</h4>
-                                        <p class="small">You can also move the slide number or the controls to your header or footer. If they are nested there manually, or through the <code>barhtml</code> option, they will then display inside that header or footer.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers="4-7">Reveal.initialize({
-	//...
-	simplemenu: {
-	    barhtml: { 
-	        header: "",
-	        footer: "&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;div class='slide-number'&gt;&lt;/div&gt;&lt;/div&gt;"
-	    }
-	},
-	plugins: [ Simplemenu ]</code></pre>
-                                    </section>
-                                    <section>
-                                        <h4>Option 7: flat</h4>
-                                        <p class="small">Sometimes you’ll want to limit your presentation to horizontal slides only. To still use ‘chapters’ with several slides, you can use the <code>flat</code> option. By default, it is set to <code>false</code>, but you can set it to <code>true</code>. Then, when a data-name is set for a slide, any following slides will keep that menu name. See <a href="demo-flat.html" target="_blank">Flat navigation</a>.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
-	//...
-	simplemenu: {
-	    flat: true
-	},
-	plugins: [ Simplemenu ]</code></pre>
-                                        <p class="small">To stop inheriting the previous slide menu name, start a new named section, or add <code>data-sm="false"</code> to your slide.</p>
-                                    </section>
-                                    <section>
-                                        <h4>Option 8: scale</h4>
-                                        <p class="small">When you have a lot of subjects/chapters in your menubar, they might not all fit in a row. You can then tweak the scale in the options. Simplemenu copies the Reveal.js (slide) scaling and adds a <code>scale</code> option on top of that.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
-	//...
-	simplemenu: {
-	    scale: 0.67
-	},
-	plugins: [ Simplemenu ]</code></pre>
-                                        <p class="small">It is set to be two-thirds of the main scaling.</p>
-                                    </section>
-                                    <section>
-                                        <h4>Option 9: csspath</h4>
-                                        <p class="small">Simplemenu will automatically load some styling for the menubar and the links. <br>It is likely that you will want to change it. You can link to your own CSS file with the <code>csspath</code> option.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
-	//...
-	simplemenu: {
-	    csspath: "mycustomstyle.css"
-	},
-	plugins: [ Simplemenu ]</code></pre>
-                                        <p class="small">You can also set <code>csspath: false</code> if you define the styling of your menu through some other CSS file that is already loaded.</p>
                                     </section>
                                 </section>
                                 <section class="center" data-name="Demos">
@@ -1474,19 +1279,19 @@ if uglydog == false
     <script src="dist/reveal.js"></script>
     <script src="reveal.js-copycode/plugin/highlight/highlight.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <script src="reveal.js-appearance/plugin/appearance/appearance.js?uj4od"></script>
-    <script src="reveal.js-internation/plugin/internation/internation.js?uj4od"></script>
-    <script src="reveal.js-verticator/plugin/verticator/verticator.js?uj4od"></script>
-    <script src="reveal.js-smallcontrol/plugin/smallcontrol/smallcontrol.js?uj4od"></script>
-    <script src="reveal.js-fsfx/plugin/fsfx/fsfx.js?uj4od"></script>
-    <script src="reveal.js-simplemenu/plugin/simplemenu/simplemenu.js?uj4od"></script>
-    <script src="reveal.js-relativenumber/plugin/relativenumber/relativenumber.js?uj4od"></script>
-    <script src="reveal.js-copycode/plugin/copycode/copycode.js?uj4od"></script>
-    <script src="reveal.js-fontsfirst/plugin/fontsfirst/fontsfirst.js?uj4od"></script>
-    <script src="reveal.js-doghouse/plugin/doghouse/doghouse.js?uj4od"></script>
-    <script src="reveal.js-tagteam/plugin/tagteam/tagteam.js?uj4od"></script>
-    <script src="reveal.js-counteract/plugin/counteract/counteract.js?uj4od"></script>
-    <script src="demo.js?uj4od"></script>
+    <script src="reveal.js-appearance/plugin/appearance/appearance.js?uyeuc"></script>
+    <script src="reveal.js-internation/plugin/internation/internation.js?uyeuc"></script>
+    <script src="reveal.js-verticator/plugin/verticator/verticator.js?uyeuc"></script>
+    <script src="reveal.js-smallcontrol/plugin/smallcontrol/smallcontrol.js?uyeuc"></script>
+    <script src="reveal.js-fsfx/plugin/fsfx/fsfx.js?uyeuc"></script>
+    <script src="reveal.js-simplemenu/plugin/simplemenu/simplemenu.js?uyeuc"></script>
+    <script src="reveal.js-relativenumber/plugin/relativenumber/relativenumber.js?uyeuc"></script>
+    <script src="reveal.js-copycode/plugin/copycode/copycode.js?uyeuc"></script>
+    <script src="reveal.js-fontsfirst/plugin/fontsfirst/fontsfirst.js?uyeuc"></script>
+    <script src="reveal.js-doghouse/plugin/doghouse/doghouse.js?uyeuc"></script>
+    <script src="reveal.js-tagteam/plugin/tagteam/tagteam.js?uyeuc"></script>
+    <script src="reveal.js-counteract/plugin/counteract/counteract.js?uyeuc"></script>
+    <script src="demo.js?uyeuc"></script>
     <script src="https://unpkg.com/requirejs@2.3.5/require.js"></script>
     <script>
         require({

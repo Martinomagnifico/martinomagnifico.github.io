@@ -203,6 +203,45 @@ body, html {
   }
 }
 
+.centerblock {
+  height: 100%;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+}
+
+ol.twocol {
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  counter-reset: item;
+  width: 80%;
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+}
+ol.twocol li {
+  counter-increment: item;
+  padding-left: 1.7em;
+}
+ol.twocol li:before {
+  content: counter(item) ".";
+  margin-left: -1.7em;
+  margin-right: 0.5em;
+  display: inline-block;
+  width: 1.2em;
+  text-align: right;
+}
+
 @media (min-width: 768px) and (max-width: 991px) {
   .container > .row > .col-half:first-child {
     -webkit-box-flex: 1;
@@ -834,15 +873,12 @@ pre code {
   padding: 0 !important;
 }
 
-.menubar {
+#relativenumber .menubar {
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -o-transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  -webkit-transform: translateY(-100%);
-      -ms-transform: translateY(-100%);
-          transform: translateY(-100%);
   z-index: 20;
   padding: 0.3em;
   position: absolute;
@@ -860,44 +896,44 @@ pre code {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   margin-top: -1px;
 }
-.reveal.ready:not(.hide-menubar) .menubar {
+.reveal.ready:not(.hide-menubar) #relativenumber .menubar {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
 }
-.menubar > * {
+#relativenumber .menubar > * {
   padding: 0.4em 0.6em;
 }
-.menubar > *:first-child, .menubar > *:last-child {
+#relativenumber .menubar > *:first-child, #relativenumber .menubar > *:last-child {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
-.menubar > *:first-child {
+#relativenumber .menubar > *:first-child {
   margin-right: auto;
 }
-.menubar > *:last-child {
+#relativenumber .menubar > *:last-child {
   margin-left: auto;
 }
-.menubar > *:first-child:last-child {
+#relativenumber .menubar > *:first-child:last-child {
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
 }
-.menubar > *:first-child:last-child.left {
+#relativenumber .menubar > *:first-child:last-child.left {
   margin-left: 0;
 }
-.menubar > *:first-child:last-child.right {
+#relativenumber .menubar > *:first-child:last-child.right {
   margin-right: 0;
 }
-.menubar a {
+#relativenumber .menubar a {
   color: inherit;
   opacity: 0.5;
 }
-.menubar a:hover {
+#relativenumber .menubar a:hover {
   color: inherit;
   opacity: 0.75;
 }
-.menubar > ul {
+#relativenumber .menubar > ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -917,33 +953,33 @@ pre code {
   padding: 0;
   margin: 0 auto;
 }
-.menubar > ul li {
+#relativenumber .menubar > ul li {
   padding: 0.4em 1em;
   text-align: center;
 }
-.menubar > ul li.active a {
+#relativenumber .menubar > ul li.active a {
   opacity: 1;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 @media screen and (max-width: 1199px) {
-  .menubar {
+  #relativenumber .menubar {
     font-size: 0.75rem;
   }
-  .menubar > * {
+  #relativenumber .menubar > * {
     padding: 0.2em 0.3em;
   }
 }
-:-webkit-full-screen .menubar {
+:-webkit-full-screen #relativenumber .menubar {
   font-size: 2.7vmin;
 }
-:-ms-fullscreen .menubar {
+:-ms-fullscreen #relativenumber .menubar {
   font-size: 2.7vmin;
 }
-.fullscreen .menubar, :fullscreen .menubar {
+.fullscreen #relativenumber .menubar, :fullscreen #relativenumber .menubar {
   font-size: 2.7vmin;
 }
-.menubar .slide-number {
+#relativenumber .menubar .slide-number {
   display: block !important;
   background: none;
   position: relative;
@@ -955,7 +991,7 @@ pre code {
   padding: 0.4em 0 0.4em 0.4em;
 }
 
-.menubar > *:first-child, .menubar > *:last-child {
+.menubarx > *:first-child, .menubarx > *:last-child {
   -ms-flex-preferred-size: 10vmin;
       flex-basis: 10vmin;
 }
