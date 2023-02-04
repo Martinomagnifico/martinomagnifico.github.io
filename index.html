@@ -11,51 +11,8 @@
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="dist/theme/black.css">
-    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="demo.css?uj4od">
     <link rel="stylesheet" href="reveal.js-copycode/plugin/highlight/monokai.css">
-    <style>
-        [data-count-titlecount]:after {
-            content: attr(data-count-titlecount);
-            background: #008add;
-            display: inline-block;
-            border-radius: 42px;
-            width: 1.20em;
-            height: 1.20em;
-            line-height: 1.25em;
-            margin-left: 0.25em;
-        }
-
-        figcaption:after {
-            content: " " attr(data-count-figcaption);
-            color: #008add;
-        }
-
-        ol.list,
-        ol.stoplist {
-            padding-left: 0;
-            margin-left: 0;
-            list-style: none;
-        }
-
-        ol.list li:before {
-            content: attr(data-count-mylist) ". ";
-            color: #008add;
-        }
-
-        ol.stoplist li:before {
-            content: attr(data-count-stoplist) ". ";
-            color: #008add;
-        }
-
-        h4[data-count-mainnumber]:before {
-            content: attr(data-count-mainnumber) ". ";
-            color: #008add;
-        }
-
-        section h4[data-count-mainnumber][data-count-subnumber]:before {
-            content: attr(data-count-mainnumber) "." attr(data-count-subnumber) ". ";
-        }
-    </style>
 </head>
 
 <body>
@@ -383,7 +340,7 @@
                     </div>
                 </div>
                 <div class="col-half rpb">
-                    <p>Internation is an internationalization (i18n) plugin for Reveal.js that reads language dictionaries from JSON files. The author can add switches to the presentation to let the user choose a language. </p>
+                    <p>Internation is a localization (i10n) or internationalization (i18n) plugin for Reveal.js that reads language dictionaries from JSON files. The author can add switches to the presentation to let the user choose a language. </p>
                     <p>Authoring dictionary files is made easy by generating a first JSON file of the current language automatically based on the existing HTML.</p>
                 </div>
             </div>
@@ -420,20 +377,27 @@
                                     </section>
                                     <section class="center">
                                         <h4>You can keep it as it is</h4>
-                                        <p>By default, the Verticator bullets are black. Verticator.js assumes that you have a light theme, and has the colors set in CSS accordingly. If your theme is dark, let Verticator know by setting it in the options.</p>
+                                        <p>If you do not override the colors in the options, Verticator will use your theme colors: the bullets will be the same color as text in your presentation.</p>
                                     </section>
                                     <section class="center" data-background="#dddddd">
-                                        <p>If an opposite background (a hex color) is set through an attribute of data-background or data-background-color on a slide (a section), the Verticator bullet will also get an opposite color.</p>
+                                        <p>Verticator detects if the slide background is set to an inverse color. If you do not override the colors in the options, the bullets will still take on the heading- or textcolor of the slide.</p>
                                     </section>
-                                    <section class="center" data-background="#dddddd">
-                                        <p>You can also use your own specific colors.</p>
+                                    <section class="center">
+                                        <p>You can also use your own specific colors in the global configuration of Verticator:</p>
                                         <pre><code class="hljs">Reveal.initialize({
     ...
     verticator: {
         color: 'green',
-        oppositecolor: 'orange'
+        inversecolor: 'orange'
     },
     plugins: [ Verticator ]</code></pre>
+                                        <p class="small">(These do not show now because it is not the loaded configuration)</p>
+                                    </section>
+                                    <section class="center" data-verticator="deeppink">
+                                        <p>Or you can override it per slide with a data-attribute:</p>
+                                        <pre><code class="hljs"><section data-verticator="deeppink">
+	<p>Or you can override it per slide with a data-attribute</p>
+</section></code></pre>
                                     </section>
                                 </section>
                                 <section class="center">
@@ -455,7 +419,7 @@
                 </div>
                 <div class="col-half rpb">
                     <p>A plugin for Reveal.js that adds indicators to show the amount of slides in a vertical stack. Sometimes you would like to have an indication of how many slides are remaining in a vertical stack. This plugin does just that. It is visually quite similar to the indicators at fullPage.js.</p>
-                    <p>The author can choose the main color of the indicators, and an opposite color if the background of the slide is opposite as well.</p>
+                    <p>The author can choose the main color of the indicators, and an inverse color if the background of the slide is inverse as well.</p>
                 </div>
             </div>
         </div>
@@ -507,7 +471,7 @@
 </code></pre>
                                     </section>
                                     <section class="center">
-                                        <h4>That's it!</h4>
+                                        <h4>That’s it!</h4>
                                     </section>
                                 </section>
                             </div>
@@ -536,12 +500,11 @@
                 <div class="col-half">
                     <div class="holder">
                         <div class="reveal" id="fsfx" data-fs-toggle="fullscreen" style="background-image: url('//martinomagnifico.github.io/reveal.js-fsfx/screenshot.png')">
-                            <button class="fsbutton icon-fs" style="position: absolute; right: 20px; top: 20px; z-index: 2;" data-fs-toggle="icon-fsexit"></button>
                             <div class="slides">
                                 <section class="center" data-transition="fade">
                                     <h1>FsFx</h1>
                                     <h3>for Reveal.js</h3>
-                                    <button class="fsbutton" data-fs-gonext="1500">Start the show!</button>
+                                    <button class="bigbutton fsbutton" data-fs-gonext="1500">Start the show!</button>
                                     <div class="fsfx-disabled"><br>
                                         <p style="color: #42affa; width: 80%; margin: auto">Note: This device does not support the Fullscreen API.</p>
                                     </div>
@@ -552,8 +515,9 @@
                                         <li>Enter or exit fullscreen</li>
                                         <li>Trigger 'next slide' after fullscreen</li>
                                         <li>Toggle a class on any element if fullscreen</li>
+                                        <li>Auto-generate a fullscreen button</li>
                                     </ol><br>
-                                    <p class="small">If a device (looking at you, iPhone) does not support the Fullscreen API, a class of <code>no-fsfx</code> will be added to the body. You can use it to show warnings, hide elements etcetera.</p>
+                                    <p class="small">If a device does not support the Fullscreen API, a class of <code>no-fsfx</code> will be added to the body. You can use it to show warnings, hide elements etcetera.</p>
                                 </section>
                                 <section class="center">
                                     <h4>1. Enter or exit fullscreen</h4>
@@ -564,7 +528,7 @@
                                     </ul>
                                 </section>
                                 <section class="center">
-                                    <h4>2. Trigger 'next slide' after fullscreen</h4><small>The start button on the first page of this deck does exacly that</small><br><br>
+                                    <h4>2. Trigger 'next slide' after fullscreen</h4><small>The start button on the first page of this deck does exactly that</small><br><br>
                                     <ul>
                                         <li>If wanted, a 'next slide' function can be called</li>
                                         <li>It can be added with a <code>data-fs-gonext="*"</code> attribute</li>
@@ -578,7 +542,15 @@
                                         <li>The wildcard is the class that is toggled in fullscreen</li>
                                         <li class="fsfx-enabled">In this presentation, see the changes in fullscreen: The background and the button icons</li>
                                     </ul>
-                                    <button class="fsbutton icon-fs" data-fs-toggle="icon-fsexit">Toggle Fullscreen&nbsp;</button>
+                                    <button class="bigbutton fsbutton icon-fs" data-fs-toggle="icon-fsexit">Toggle Fullscreen</button>
+                                </section>
+                                <section class="center" data-background="white">
+                                    <h4>4. Auto-generate a fullscreen button</h4>
+                                    <ul>
+                                        <li>FsFx can generate a fullscreen button in your presentation <span class="fsfx-enabled">(like in this presentation)</span></li>
+                                        <li>This will only be done if no such button already exists</li>
+                                        <li>The styling of the auto-generated button is included, but you can tweak color and position</li>
+                                    </ul>
                                 </section>
                             </div>
                         </div>
@@ -590,8 +562,9 @@
                     </div>
                 </div>
                 <div class="col-half rpb">
-                    <p>A plugin for Reveal.js that enters or exits fullscreen, and toggles classes on certain elements. Sometimes you would like to have a button that starts a presentation and goes fullscreen at the same time. This plugin does just that. And some other things.</p>
-                    <p>Optional: It looks for elements in the presentation that need to have a class toggled on entering fullscreen and sets that class; it will remove the class on exiting fullscreen. The class can be set per element. Nice for an icon on the fullscreen button itself.</p>
+                    <p>A plugin for Reveal.js that enters or exits fullscreen, and toggles classes on certain elements. This plugin does just that. And some other things.</p>
+                    <p>FsFx looks for elements in the presentation that need to have a class toggled on entering fullscreen and sets that class; it will remove the class on exiting fullscreen. The class can be set per element.</p>
+                    <p>If you can't add a fullcreen button outside the slides yourself, FsFx can also generate a nice button for you.</p>
                 </div>
             </div>
         </div>
@@ -613,38 +586,41 @@
                                 </ul>
                             </div>
                             <div class="slides">
-                                <section class="center" data-transition="fade" data-state="hide-menubar">
+                                <section class="center" data-transition="fade" data-state="hide-menubar hide-menu">
                                     <h1>Simplemenu</h1>
                                     <h3>for Reveal.js</h3>
                                 </section>
-                                <section id="firstmenuitem">
+                                <section class="center" data-name="TOC" data-sm="false">
+                                    <h4>Table of contents</h4>
+                                    <p class="small">(TOC generated by Simplemenu)</p>
+                                    <ul class="menu"></ul>
+                                </section>
+                                <section data-name="What it does">
                                     <section class="center">
                                         <h4>What?</h4>
                                         <p>In Powerpoint you can make slides with a nice bottom- or top bar in which the active menu item is highlighted. This menu works in the same way, but automatically.</p>
                                     </section>
                                     <section class="center">
-                                        <p>What Simplemenu does</p>
-                                        <ul class="small">
-                                            <li>Allows for static header and footer bars on every slide that can also be exported to PDF</li>
-                                            <li>Make menu items of your vertical stacks (top-level sections).</li>
-                                            <li>Moving to another vertical stack (by whatever navigation) will automatically update the current menu item.</li>
-                                            <li>Clicking an item in the menu will open the first section in the corresponding vertical stack.</li>
-                                            <li>Simplemenu can auto-generate the menu, using section <code>data-name</code>s. See the option 'auto' in <a href="#/thirdmenuitem">options</a></li>
+                                        <h4>What Simplemenu does</h4>
+                                        <ul>
+                                            <li>Generates a menu of your sections and stacks</li>
+                                            <li>Puts the menu in a header or footer if provided</li>
+                                            <li>And/or on any slide as an agenda or TOC</li>
+                                            <li>Use the menu to navigate</li>
+                                            <li>Update the menu state during navigation</li>
                                         </ul>
                                     </section>
-                                </section>
-                                <section id="secondmenuitem">
                                     <section class="center">
-                                        <p>It's easy to set up, but expects a few things:</p>
-                                        <ul class="small">
-                                            <li>Menu items can only be top-level sections: regular horizontal slides or vertical stacks.</li>
-                                            <li>There has to be an element that will hold the links. By default this selector is the class <code>menu</code>. The selector can be changed in the Simplemenu options.</li>
-                                            <li>When not using the <code>auto</code> option, you need to do some more work: Inside this main menu, there have to be anchors with an href. These need to point to an ID of a top-level section. Reveal uses links with hashes to navigate, so the link has to be written like that: <code>href="#/firstchapter"</code>.</li>
-                                        </ul>
+                                        <p class="small">Menu items can only be regular horizontal slides or vertical stacks.</p><img data-src="img/simplemenusetup.svg">
+                                    </section>
+                                </section>
+                                <section data-name="Set it up">
+                                    <section class="center">
+                                        <h4>It's easy to set up</h4>
                                     </section>
                                     <section>
                                         <h4>JavaScript</h4>
-                                        <p class="small">Load the script and make a reference to it in the Reveal plugin options.</p>
+                                        <p class="small">Load the script and make a reference to it in the Reveal plugin options:</p>
                                         <pre><code class="hljs html" data-line-numbers>&lt;script src="plugin/simplemenu/simplemenu.js"&gt;&lt;/script&gt;
 &lt;script&gt;
 	Reveal.initialize({
@@ -654,45 +630,99 @@
                                     </section>
                                     <section>
                                         <h4>HTML Markup</h4>
-                                        <p class="small">Make anchors in your links to the ID's of your sections. Use the <code>#/anchor</code> notation that Reveal uses.</p>
-                                        <pre><code class="hljs html" data-line-numbers>&lt;div class="menubar"&gt;
-    &lt;ul class="menu"&gt;
-        &lt;li&gt;
-            &lt;a href="#/firstmenuitem"&gt;First menu item&lt;/a&gt;
-        &lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="slides"&gt;
-    &lt;section id="firstmenuitem"&gt;
+                                        <p class="small">(Markdown is also supported, see the <a href="demo-markdown.html" target="_blank">Markdown</a> demo.) <br> Give your sections a <code>data-name</code>:</p>
+                                        <pre><code class="hljs html" data-line-numbers="5-10">&lt;div class="slides"&gt;
+    &lt;section&gt;
         //...
     &lt;/section&gt;
+    &lt;section data-name="What it does"&gt;
         //...
+    &lt;/section&gt;
+    &lt;section data-name="Set it up"&gt;
+        //...
+    &lt;/section&gt;
+    //...
+&lt;/div&gt;</code></pre>
+                                        <p class="small">Add <code>data-sm="false"</code> to named sections you don’t want to show in the menu.</p>
+                                    </section>
+                                    <section>
+                                        <h4>HTML Markup</h4>
+                                        <p class="small">Add a menubar (header and/or footer), with an empty menu, through the options:</p>
+                                        <pre><code class="hljs javascript" data-line-numbers="4,5,6,7">&hellip;
+Reveal.initialize({
+    simplemenu: {
+        barhtml: {
+            header: "&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;/div&gt;",
+            footer: ""
+        }
+    },
+    plugins: [ Simplemenu ]
+</code></pre>
+                                    </section>
+                                    <section>
+                                        <h4>HTML Markup</h4>
+                                        <p class="small">… or manually:</p>
+                                        <pre><code data-line-numbers="1,2,3">&lt;div class="menubar"&gt;
+    &lt;ul class="menu"&gt;&lt;/ul&gt; <!--Keep empty-->
+&lt;/div&gt;
+&lt;div class="slides"&gt;
+    &lt;section&gt;
+        //...
+    &lt;/section&gt;
+    //...
 &lt;/div&gt;</code></pre>
                                     </section>
                                     <section>
-                                        <h4>That's it! </h4>
-                                        <p class="small">The setup above is the default way of linking the menu with the sections. But you can <em>simplify it a lot</em> by using an auto-generated menu. See the <a href="#/3/0">options</a>.</p>
+                                        <h4>HTML Markup</h4>
+                                        <p class="small">You can also add a TOC slide:</p>
+                                        <pre><code data-line-numbers="7">&lt;div class="slides"&gt;
+    &lt;section&gt;
+        &lt;h1&gt;My presentation&lt;/h1&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Agenda&lt;/h2&gt;
+        &lt;ul class="menu"&gt;&lt;/ul&gt; <!--Keep empty-->
+    &lt;/section&gt;
+    &lt;section data-name="What it does"&gt;
+        //...
+    &lt;/section&gt;
+    &lt;section data-name="Set it up"&gt;
+        //...
+    &lt;/section&gt;
+    //...
+&lt;/div&gt;
+</code></pre>
+                                    </section>
+                                    <section>
+                                        <h4>That’s it! </h4>
+                                        <p>The setup above is the default (auto) way of linking the menu with the sections. </p>
+                                        <p class="small">There is also a manual way, where the author creates the links in the menu(s) manually. See <a href="demo-manual.html">demo-manual.html</a>.</p>
                                     </section>
                                 </section>
-                                <section id="thirdmenuitem">
-                                    <section>
+                                <section class="center" data-name="Options">
+                                    <section class="center">
                                         <h2>Options</h2>
-                                        <ol>
-                                            <li>menubarclass</li>
-                                            <li>menuclass</li>
-                                            <li>activeclass</li>
-                                            <li>activeelement</li>
-                                            <li>selectby</li>
-                                            <li>auto</li>
-                                        </ol>
+                                        <div class="centerblock">
+                                            <ol class="twocol" style="margin-right: 5%">
+                                                <li>menubarclass</li>
+                                                <li>menuclass</li>
+                                                <li>activeclass</li>
+                                                <li>activeelement</li>
+                                                <li>selectby</li>
+                                                <li>barhtml</li>
+                                                <li>flat</li>
+                                                <li>scale</li>
+                                                <li>csspath</li>
+                                            </ol>
+                                        </div>
                                     </section>
                                     <section>
                                         <h4>Option 1: menubarclass</h4>
                                         <p class="small">The menubarclass option sets the classname of menubars. </p>
-                                        <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
 	//...
-	Simplemenu: {
-		menubarclass: 'menubar'
+	simplemenu: {
+	    menubarclass: "menubar"
 	},
 	plugins: [ Simplemenu ]
 </code></pre>
@@ -701,10 +731,10 @@
                                     <section>
                                         <h4>Option 2: menuclass</h4>
                                         <p class="small">The menuclass option sets the classname of the menu. </p>
-                                        <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
 	//...
-	Simplemenu: {
-		menuclass: 'menu'
+	simplemenu: {
+	    menuclass: "menu"
 	},
 	plugins: [ Simplemenu ]
 </code></pre>
@@ -713,10 +743,10 @@
                                     <section>
                                         <h4>Option 3: activeclass</h4>
                                         <p class="small">The activeclass option is the class an active menuitem gets.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
 	//...
-	Simplemenu: {
-		activeclass: 'active'
+	simplemenu: {
+	    activeclass: "active"
 	},
 	plugins: [ Simplemenu ]
 </code></pre>
@@ -724,44 +754,90 @@
                                     <section>
                                         <h4>Option 4: activeelement</h4>
                                         <p class="small">The activeelement option sets the item that gets the active class.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
 	//...
-	Simplemenu: {
-		activeelement: 'li'
+	simplemenu: {
+	    activeelement: "li"
 	},
 	plugins: [ Simplemenu ]</code></pre>
                                         <p class="small">You may want to change it to the anchor inside the li: activeelement: 'a'.</p>
                                     </section>
                                     <section>
                                         <h4>Option 5: selectby</h4>
-                                        <p class="small">The selectby option finds the currently active vertical stack by this. </p>
-                                        <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+                                        <p class="small"><em>This option is only needed when adding a menu manually. </em> You then need to link sections to the menu items. The selectby option finds the active slide or stack.</p>
+                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
 	//...
-	Simplemenu: {
-		selectby: 'id'
-		// or 'name'
+	simplemenu: {
+	    selectby: "id"
 	},
 	plugins: [ Simplemenu ]
 </code></pre>
-                                        <p class="small">By default it is 'id', but can also be set to 'name'. If set by name, Simplemenu will compare the text content of the link to the section. Then <code>&lt;a(href="#")&gt;What does it do?&lt;/a&gt;</code> will link to <code>&lt;section(name="What does it do?")&gt;</code></p>
+                                        <p class="small">By default it is 'id', but can also be set to 'data-name'. If set to data-name, Simplemenu will compare the text content of the link to the section. Then <code>&lt;a(href="#")&gt;What it does&lt;/a&gt;</code> will link to <code>&lt;section(data-name="What it does")&gt;&lt;/section&gt;</code>.</p>
                                     </section>
                                     <section>
-                                        <h4>Option 6: auto</h4>
-                                        <p class="small">If set to true, the auto option will auto-generate a menu.</p>
-                                        <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+                                        <h4>Option 6: barhtml</h4>
+                                        <p class="small">Instead of editing your HTML template, you can let Simplemenu add a header- or footerbar. You can include any HTML in it, like an empty menu (that will be automatically filled with links by Simplemenu), or a logo.</p>
+                                        <pre><code class="hljs javascript" data-line-numbers="4-7">Reveal.initialize({
 	//...
-	Simplemenu: {
-		auto: 'true'
+	simplemenu: {
+	    barhtml: { 
+	        header: "&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;/div&gt;",
+	        footer: ""
+	    }
 	},
 	plugins: [ Simplemenu ]
 </code></pre>
-                                        <p class="small">This will assume that the sections have <code>data-name</code>s.</p>
-                                        <p class="small">Then you will only need to supply an empty OL or UL with class 'menu' (or something else if set through the <code>menuclass</code> option). Simplemenu will generate the menu-items from the names of the sections.</p>
                                     </section>
-                                    <section class="center">
-                                        <h4>Option demos</h4>
-                                        <p>See all demos on the main <a href="https://github.com/martinomagnifico/reveal.js-simplemenu" target="_blank">Simplemenu page</a>.</p>
+                                    <section>
+                                        <h4>Option 6: barhtml (continued)</h4>
+                                        <p class="small">You can also move the slide number or the controls to your header or footer. If they are nested there manually, or through the <code>barhtml</code> option, they will then display inside that header or footer.</p>
+                                        <pre><code class="hljs javascript" data-line-numbers="4-7">Reveal.initialize({
+	//...
+	simplemenu: {
+	    barhtml: { 
+	        header: "",
+	        footer: "&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;div class='slide-number'&gt;&lt;/div&gt;&lt;/div&gt;"
+	    }
+	},
+	plugins: [ Simplemenu ]</code></pre>
                                     </section>
+                                    <section>
+                                        <h4>Option 7: flat</h4>
+                                        <p class="small">Sometimes you’ll want to limit your presentation to horizontal slides only. To still use ‘chapters’ with several slides, you can use the <code>flat</code> option. By default, it is set to <code>false</code>, but you can set it to <code>true</code>. Then, when a data-name is set for a slide, any following slides will keep that menu name. See <a href="demo-flat.html" target="_blank">Flat navigation</a>.</p>
+                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
+	//...
+	simplemenu: {
+	    flat: true
+	},
+	plugins: [ Simplemenu ]</code></pre>
+                                        <p class="small">To stop inheriting the previous slide menu name, start a new named section, or add <code>data-sm="false"</code> to your slide.</p>
+                                    </section>
+                                    <section>
+                                        <h4>Option 8: scale</h4>
+                                        <p class="small">When you have a lot of subjects/chapters in your menubar, they might not all fit in a row. You can then tweak the scale in the options. Simplemenu copies the Reveal.js (slide) scaling and adds a <code>scale</code> option on top of that.</p>
+                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
+	//...
+	simplemenu: {
+	    scale: 0.67
+	},
+	plugins: [ Simplemenu ]</code></pre>
+                                        <p class="small">It is set to be two-thirds of the main scaling.</p>
+                                    </section>
+                                    <section>
+                                        <h4>Option 9: csspath</h4>
+                                        <p class="small">Simplemenu will automatically load some styling for the menubar and the links. <br>It is likely that you will want to change it. You can link to your own CSS file with the <code>csspath</code> option.</p>
+                                        <pre><code class="hljs javascript" data-line-numbers="4">Reveal.initialize({
+	//...
+	simplemenu: {
+	    csspath: "mycustomstyle.css"
+	},
+	plugins: [ Simplemenu ]</code></pre>
+                                        <p class="small">You can also set <code>csspath: false</code> if you define the styling of your menu through some other CSS file that is already loaded.</p>
+                                    </section>
+                                </section>
+                                <section class="center" data-name="Demos">
+                                    <h4>Option demos</h4>
+                                    <p>See all demos on the main <a href="https://github.com/martinomagnifico/reveal.js-simplemenu" target="_blank">Simplemenu page</a>.</p>
                                 </section>
                             </div>
                         </div>
@@ -1223,7 +1299,7 @@ if uglydog == false
                                     <section>
                                         <h4>Setting a groups option</h4>
                                         <p class="small">Each 'groups' object needs a name and an array of tags and/or an array of names.</p>
-                                        <pre><code class="hljs js" data-line-numbers>Reveal.initialize({
+                                        <pre><code class="hljs js" data-line-numbers="4-11">Reveal.initialize({
     //...
     tagteam: {
         groups: {
@@ -1398,19 +1474,19 @@ if uglydog == false
     <script src="dist/reveal.js"></script>
     <script src="reveal.js-copycode/plugin/highlight/highlight.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <script src="reveal.js-appearance/plugin/appearance/appearance.js?p6jms"></script>
-    <script src="reveal.js-internation/plugin/internation/internation.js?p6jms"></script>
-    <script src="reveal.js-verticator/plugin/verticator/verticator.js?p6jms"></script>
-    <script src="reveal.js-smallcontrol/plugin/smallcontrol/smallcontrol.js?p6jms"></script>
-    <script src="reveal.js-fsfx/plugin/fsfx/fsfx.js?p6jms"></script>
-    <script src="reveal.js-simplemenu/plugin/simplemenu/simplemenu.js?p6jms"></script>
-    <script src="reveal.js-relativenumber/plugin/relativenumber/relativenumber.js?p6jms"></script>
-    <script src="reveal.js-copycode/plugin/copycode/copycode.js?p6jms"></script>
-    <script src="reveal.js-fontsfirst/plugin/fontsfirst/fontsfirst.js?p6jms"></script>
-    <script src="reveal.js-doghouse/plugin/doghouse/doghouse.js?p6jms"></script>
-    <script src="reveal.js-tagteam/plugin/tagteam/tagteam.js?p6jms"></script>
-    <script src="reveal.js-counteract/plugin/counteract/counteract.js?p6jms"></script>
-    <script src="demo.js?p6jms"></script>
+    <script src="reveal.js-appearance/plugin/appearance/appearance.js?uj4od"></script>
+    <script src="reveal.js-internation/plugin/internation/internation.js?uj4od"></script>
+    <script src="reveal.js-verticator/plugin/verticator/verticator.js?uj4od"></script>
+    <script src="reveal.js-smallcontrol/plugin/smallcontrol/smallcontrol.js?uj4od"></script>
+    <script src="reveal.js-fsfx/plugin/fsfx/fsfx.js?uj4od"></script>
+    <script src="reveal.js-simplemenu/plugin/simplemenu/simplemenu.js?uj4od"></script>
+    <script src="reveal.js-relativenumber/plugin/relativenumber/relativenumber.js?uj4od"></script>
+    <script src="reveal.js-copycode/plugin/copycode/copycode.js?uj4od"></script>
+    <script src="reveal.js-fontsfirst/plugin/fontsfirst/fontsfirst.js?uj4od"></script>
+    <script src="reveal.js-doghouse/plugin/doghouse/doghouse.js?uj4od"></script>
+    <script src="reveal.js-tagteam/plugin/tagteam/tagteam.js?uj4od"></script>
+    <script src="reveal.js-counteract/plugin/counteract/counteract.js?uj4od"></script>
+    <script src="demo.js?uj4od"></script>
     <script src="https://unpkg.com/requirejs@2.3.5/require.js"></script>
     <script>
         require({

@@ -474,7 +474,7 @@ a.button.secondary:hover, button.button.secondary:hover {
 
 p code, p kbd, code {
   background: rgba(180, 180, 180, 0.2);
-  font-size: 0.7em;
+  font-size: 0.8em;
   padding: 5px 10px;
   border-radius: 6px;
 }
@@ -515,10 +515,6 @@ pre code {
   font-size: 12px;
 }
 
-.reveal .lowercase {
-  text-transform: none;
-}
-
 .reveal#verticator section section {
   padding-left: 75px;
   padding-right: 75px;
@@ -534,6 +530,10 @@ pre code {
 
 .reveal#verticator:not(:fullscreen) .verticator {
   right: 5px;
+}
+
+.reveal .lowercase {
+  text-transform: none;
 }
 
 /* EXAMPLE FLAG LANGUAGE CHOOSER */
@@ -1092,4 +1092,45 @@ code.url {
 }
 #counteract pre code.hljs {
   background: rgba(255, 255, 255, 0.1);
+}
+
+[data-count-titlecount]:after {
+  content: attr(data-count-titlecount);
+  background: #008add;
+  display: inline-block;
+  border-radius: 42px;
+  width: 1.2em;
+  height: 1.2em;
+  line-height: 1.25em;
+  margin-left: 0.25em;
+}
+
+figcaption:after {
+  content: " " attr(data-count-figcaption);
+  color: #008add;
+}
+
+ol.list, ol.stoplist {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+ol.list li:before {
+  content: attr(data-count-mylist) ". ";
+  color: #008add;
+}
+
+ol.stoplist li:before {
+  content: attr(data-count-stoplist) ". ";
+  color: #008add;
+}
+
+h4[data-count-mainnumber]:before {
+  content: attr(data-count-mainnumber) ". ";
+  color: #008add;
+}
+
+section h4[data-count-mainnumber][data-count-subnumber]:before {
+  content: attr(data-count-mainnumber) "." attr(data-count-subnumber) ". ";
 }
