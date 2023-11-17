@@ -11,7 +11,7 @@ body {
 }
 
 body, html {
-  background: #1a1626;
+  background: #051525;
   color: white;
   width: 100%;
   height: 100%;
@@ -416,6 +416,9 @@ a.button.secondary:hover, button.button.secondary:hover {
 }
 
 .holder {
+  background-size: cover;
+  background-position: center center;
+  border-radius: 0.25rem;
   position: relative;
   padding-bottom: 56.25%;
 }
@@ -430,6 +433,7 @@ a.button.secondary:hover, button.button.secondary:hover {
   }
 }
 .holder .reveal {
+  --r-background-color: #051525;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -437,19 +441,17 @@ a.button.secondary:hover, button.button.secondary:hover {
   max-height: 100%;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center center;
   border: 2px solid #4E555C;
   border-radius: 0.25rem;
-  -webkit-box-shadow: inset 0 0 2px #1a1626, 0 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
-          box-shadow: inset 0 0 2px #1a1626, 0 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 0 2px #051525, 0 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 0 2px #051525, 0 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
   -webkit-transition: all 0.15s ease-in-out;
   -o-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
   cursor: pointer;
 }
-.holder .reveal .backgrounds {
-  background-color: #1a1626;
+.holder .reveal:focus {
+  outline: none;
 }
 .holder .reveal:hover {
   border-color: #007AC3;
@@ -576,22 +578,25 @@ pre code {
 }
 
 /* EXAMPLE FLAG LANGUAGE CHOOSER */
-.reveal .flags {
+#internation {
+  /* EXAMPLE DROPDOWN WITH LANGUAGE CHOOSER */
+}
+#internation .flags {
   display: block;
   position: relative;
   margin-bottom: -80px !important;
   margin-top: 80px;
 }
-.reveal .flags label {
+#internation .flags label {
   display: inline-block;
 }
-.reveal .flags [type=radio] {
+#internation .flags [type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
-.reveal .flags img {
+#internation .flags img {
   border-radius: 35px;
   border: 4px solid #1a1626;
   margin: 0;
@@ -602,54 +607,55 @@ pre code {
   cursor: pointer;
   opacity: 0.5;
 }
-.reveal .flags img:hover {
+#internation .flags img:hover {
   opacity: 1;
 }
-.reveal .flags [type=radio]:checked + img {
+#internation .flags [type=radio]:checked + img {
   pointer-events: none;
   opacity: 1;
   border: 4px solid white;
 }
-
-.reveal:-webkit-full-screen .flags img {
+#internation:-webkit-full-screen .flags img {
   border-radius: 35px;
   width: 60px;
   height: 60px;
 }
-
-.reveal:-ms-fullscreen .flags img {
+#internation:-ms-fullscreen .flags img {
   border-radius: 35px;
   width: 60px;
   height: 60px;
 }
-
-.reveal:fullscreen .flags img {
+#internation:fullscreen .flags img {
   border-radius: 35px;
   width: 60px;
   height: 60px;
 }
-
-/* EXAMPLE DROPDOWN WITH LANGUAGE CHOOSER */
-.menubar .dropdown {
+#internation .menubar {
+  padding: 0.15em;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+#internation .menubar .dropdown {
   position: relative;
   display: inline-block;
   font-size: 1rem;
   color: #FFF;
 }
 @media screen and (max-width: 1199px) {
-  .menubar .dropdown {
+  #internation .menubar .dropdown {
     font-size: 0.75rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .fullscreen .menubar .dropdown {
+  .fullscreen #internation .menubar .dropdown {
     font-size: 20px;
   }
 }
-.menubar input[type=checkbox] {
+#internation .menubar input[type=checkbox] {
   display: none;
 }
-.menubar input[type=checkbox] + label {
+#internation .menubar input[type=checkbox] + label {
   background: none;
   border: 1px solid white;
   border-radius: 6px;
@@ -657,16 +663,16 @@ pre code {
   cursor: pointer;
   opacity: 0.5;
 }
-.menubar input[type=checkbox] + label:hover {
+#internation .menubar input[type=checkbox] + label:hover {
   opacity: 1;
 }
-.menubar input[type=checkbox]:checked + label {
+#internation .menubar input[type=checkbox]:checked + label {
   border-radius: 6px 6px 0 0;
 }
-.menubar input[type=checkbox]:checked ~ .langchooser {
+#internation .menubar input[type=checkbox]:checked ~ .langchooser {
   display: block;
 }
-.menubar label {
+#internation .menubar label {
   display: inline-block;
   text-align: center;
   -webkit-user-select: none;
@@ -674,13 +680,13 @@ pre code {
   -ms-user-select: none;
   user-select: none;
 }
-.menubar [type=radio] {
+#internation .menubar [type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
-.menubar .dropdown .langchooser {
+#internation .menubar .dropdown .langchooser {
   position: absolute;
   list-style: none;
   text-align: left;
@@ -699,27 +705,27 @@ pre code {
   border-radius: 0 0 6px 6px;
   overflow: hidden;
 }
-.menubar .dropdown .langchooser label {
+#internation .menubar .dropdown .langchooser label {
   display: block;
   padding: 0;
 }
-.menubar .langchooser [type=radio] + span {
+#internation .menubar .langchooser [type=radio] + span {
   display: block;
   padding: 0.75em 2em;
   cursor: pointer;
   opacity: 0.5;
 }
-.menubar .langchooser span:hover {
+#internation .menubar .langchooser span:hover {
   opacity: 0.75;
 }
-.menubar .langchooser [type=radio]:checked + span {
+#internation .menubar .langchooser [type=radio]:checked + span {
   pointer-events: none;
   color: white;
   font-weight: bold;
   opacity: 1;
   position: relative;
 }
-.menubar .langchooser [type=radio]:checked + span:before {
+#internation .menubar .langchooser [type=radio]:checked + span:before {
   content: "√";
   display: block;
   position: absolute;
@@ -869,10 +875,6 @@ pre code {
   content: "-";
 }
 
-.p-0 {
-  padding: 0 !important;
-}
-
 #relativenumber .menubar {
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -991,42 +993,93 @@ pre code {
   padding: 0.4em 0 0.4em 0.4em;
 }
 
-.menubarx > *:first-child, .menubarx > *:last-child {
-  -ms-flex-preferred-size: 10vmin;
-      flex-basis: 10vmin;
-}
-
-#fontsfirst.reveal, #fontsfirst.reveal h1, #fontsfirst.reveal h2, #fontsfirst.reveal h3, #fontsfirst.reveal h4, #fontsfirst.reveal p, #fontsfirst.reveal ul {
+#fontsfirst, #fontsfirst h1, #fontsfirst h2, #fontsfirst h3, #fontsfirst h4, #fontsfirst p, #fontsfirst ul {
   font-family: "Roboto Slab";
   text-transform: none;
 }
 
-html .reveal .fontinfo {
+html #fontsfirst .fontinfo {
   padding: 1em;
   margin-top: 2em;
   color: black;
   background-color: red;
   display: inline-block;
 }
-
-html .reveal .fontinfo:after {
+html #fontsfirst .fontinfo:after {
   content: "The WebfontLoader script did not load.";
 }
-
-html.wf-active .reveal .fontinfo {
+html.wf-active #fontsfirst .fontinfo {
   background-color: lightgreen;
 }
-
-html.wf-active .reveal .fontinfo:after {
+html.wf-active #fontsfirst .fontinfo:after {
   content: "This page can use remote (Google/Typekit) fonts.";
 }
-
-html.wf-active.selfhostfonts .reveal .fontinfo {
+html.wf-active.selfhostfonts #fontsfirst .fontinfo {
   background-color: orange;
 }
-
-html.wf-active.selfhostfonts .reveal .fontinfo:after {
+html.wf-active.selfhostfonts #fontsfirst .fontinfo:after {
   content: "This page can (or could) not use remote (Google/Typekit) fonts and falls back to the self-hosted font.";
+}
+
+[data-count-titlecount]:after {
+  content: attr(data-count-titlecount);
+  background: #008add;
+  display: inline-block;
+  border-radius: 42px;
+  width: 1.2em;
+  height: 1.2em;
+  line-height: 1.25em;
+  margin-left: 0.25em;
+}
+
+#counteract .left {
+  text-align: left;
+}
+#counteract .example {
+  padding: 0.5em 1em;
+  font-size: 0.6em;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 1em;
+}
+#counteract pre code.hljs {
+  background: rgba(255, 255, 255, 0.1);
+}
+#counteract figcaption {
+  padding: 0.5em;
+}
+#counteract figcaption:after {
+  content: " " attr(data-count-figcaption);
+  color: #008add;
+}
+#counteract ol.list, #counteract ol.stoplist {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+#counteract ol.list li:before {
+  content: attr(data-count-mylist) ". ";
+  color: #008add;
+}
+#counteract ol.stoplist li:before {
+  content: attr(data-count-stoplist) ". ";
+  color: #008add;
+}
+#counteract h4[data-count-mainnumber]:before {
+  content: attr(data-count-mainnumber) ". ";
+  color: #008add;
+}
+#counteract section h4[data-count-mainnumber][data-count-subnumber]:before {
+  content: attr(data-count-mainnumber) "." attr(data-count-subnumber) ". ";
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.menubarx > *:first-child, .menubarx > *:last-child {
+  -ms-flex-preferred-size: 10vmin;
+      flex-basis: 10vmin;
 }
 
 #doghouse .row, #counteract .row {
@@ -1111,62 +1164,4 @@ html.wf-active.selfhostfonts .reveal .fontinfo:after {
 code.url {
   background: #ddd;
   color: #222D2F;
-}
-
-#counteract figcaption {
-  padding: 0.5em;
-}
-#counteract .left {
-  text-align: left;
-}
-#counteract .example {
-  padding: 0.5em 1em;
-  font-size: 0.6em;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  margin-bottom: 1em;
-}
-#counteract pre code.hljs {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-[data-count-titlecount]:after {
-  content: attr(data-count-titlecount);
-  background: #008add;
-  display: inline-block;
-  border-radius: 42px;
-  width: 1.2em;
-  height: 1.2em;
-  line-height: 1.25em;
-  margin-left: 0.25em;
-}
-
-figcaption:after {
-  content: " " attr(data-count-figcaption);
-  color: #008add;
-}
-
-ol.list, ol.stoplist {
-  padding-left: 0;
-  margin-left: 0;
-  list-style: none;
-}
-
-ol.list li:before {
-  content: attr(data-count-mylist) ". ";
-  color: #008add;
-}
-
-ol.stoplist li:before {
-  content: attr(data-count-stoplist) ". ";
-  color: #008add;
-}
-
-h4[data-count-mainnumber]:before {
-  content: attr(data-count-mainnumber) ". ";
-  color: #008add;
-}
-
-section h4[data-count-mainnumber][data-count-subnumber]:before {
-  content: attr(data-count-mainnumber) "." attr(data-count-subnumber) ". ";
 }
